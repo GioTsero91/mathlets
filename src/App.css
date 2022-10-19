@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+body {
+    background-color: #1F2034;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+*::-webkit-scrollbar-thumb {
+    background-color: #F741C4A1;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
-.App-link {
-  color: #61dafb;
+#main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    height: 100%;
+    background-color: #28253D;
+    border-radius: 25px;
+    width: 220px;
+    padding-left: 10px;
+    padding-top:40px;
+    margin-left: 20px;
+    font-size: 15px;
+    /*border: 1px solid white;*/
+}
+
+nav .item {
+    margin-top: 5px;
+    padding:10px;
+    padding-left:15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 0.5s ease;
+    position: relative;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+}
+
+nav .active >.item {
+    background-color:#1F2034;
+}
+
+nav .item::before {
+    transition: 0.5s ease;
+    content: "";
+    position: absolute;
+    width:30px;
+    height: 30px;
+    right:-2px;
+    top:-30px;
+    background-color:transparent;
+    box-shadow: 5px 5px 0 5px #1F203400;
+    border-bottom-right-radius: 9999px;
+}
+
+nav .item::after {
+    transition: 0.5s ease;
+    content: "";
+    position: absolute;
+    width:30px;
+    height: 30px;
+    right:-2px;
+    bottom:-30px;
+    background-color:transparent;
+    box-shadow: 5px -5px 0 5px #1F203400;
+    border-top-right-radius: 9999px;
+}
+
+nav .active >.item::before {
+
+    box-shadow: 5px 5px 0 5px #1F2034;
+}
+
+nav .active >.item::after {
+
+    box-shadow: 5px -5px 0 5px #1F2034;
+}
+
+nav .item > div {
+    width:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+nav .item a {
+    color: white;
+    text-decoration: none;
+    flex:4;
 }
