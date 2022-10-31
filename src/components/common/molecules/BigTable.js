@@ -3,6 +3,7 @@ import {Body, Cell, Header, HeaderCell, HeaderRow, Row, Table,} from '@table-lib
 import FilterTabs from "./FilterTabs";
 import {CONFIG} from "../../../config";
 import CustomInput from "../atoms/CustomInput";
+import {withRouter} from "../../../services/WithRouter";
 
 class BigTable extends React.Component {
 
@@ -38,6 +39,7 @@ class BigTable extends React.Component {
     this.rows = this.state.tableData ?? []
     this.style = this.props.data?.style ?? null;
     this.filter = this.props.data.filter ?? null;
+    this.navigate = this.props.data.navigate ?? null;
 
     const data = {nodes: this.rows};
 
@@ -52,7 +54,7 @@ class BigTable extends React.Component {
       {
         this.filter.type === 'search' &&
         <div className={"absolute z-[11] top-[15px] px-[10px] rounded-[8px] flex items-center"}>
-          <CustomInput icon={"images/icons/common/search.svg"} width={"300px"}
+          <CustomInput icon={require("assets/images/icons/common/search.svg").default} width={"300px"}
                        placeholder={this.filter.placeholder}/>
         </div>
       }
@@ -60,7 +62,7 @@ class BigTable extends React.Component {
       {
         this.filter.type === 'times' &&
         <div className={"absolute z-[11] top-[15px] bg-accent px-[10px] rounded-[8px] flex items-center"}>
-          <img src={"images/icons/common/interval.svg"}/>
+          <img src={require("assets/images/icons/common/interval.svg").default}/>
           <div className={"border-r-[2px] border-bg self-stretch ml-[10px]"}>
 
           </div>
@@ -86,29 +88,37 @@ class BigTable extends React.Component {
               </Header>
               <Body>
                 {tableList.map((row, rowKey) => {
+                  const rowId = row.id
+                  const rowData = row.data
                   const ref = React.createRef();
                   let extraData = '';
                   const showExtra = (key) => {
                     let prevState = this.state.showExtraData;
-                    prevState[key] = prevState[key] ? false : true;
+                    prevState[key] = !prevState[key];
                     this.setState({showExtraData: prevState})
                   }
 
                   return <>
-                    <Row className="relative" key={rowKey} item={row}>
+                    <Row
+                      onClick={() => {
+                        !!this.navigate && this.props.navigate(this.navigate.url + rowId)
+                      }}
+                      className={"relative " + (!!this.navigate ? "cursor-pointer" : "")}
+                      key={rowKey}
+                      item={row}>
                       {
-                        row.map((item, key) => {
-                          const className = item.className ?? '';
-                          let data = item.className ? item.data : item;
+                        rowData.map((item, key) => {
+                          const className = item.className ?? ''
+                          let data = item.className ? item.data : item
                           if (item.type === 'extra') {
                             data = <div onClick={() => {
                               showExtra(rowKey)
                             }}
                                         className="absolute top-[30px] rounded-full bg-no-repeat bg-center w-8 h-8 cursor-pointer flex items-center justify-center"
-                                        style={{backgroundImage: 'url(images/icons/common/ellipse.svg)'}}>
+                                        style={{backgroundImage: 'url(' + require("assets/images/icons/common/ellipse.svg").default + ')'}}>
                               <img
                                 className={"transition-all ease-in-out duration-300 " + (this.state.showExtraData[rowKey] ? "rotate-180" : "rotate-1")}
-                                src={"images/icons/common/arrow-down.svg"}/>
+                                src={require("assets/images/icons/common/arrow-down.svg").default}/>
                             </div>
                             extraData = item.data;
                           }
@@ -146,4 +156,4 @@ class BigTable extends React.Component {
   }
 }
 
-export default BigTable
+export default withRouter(BigTable)

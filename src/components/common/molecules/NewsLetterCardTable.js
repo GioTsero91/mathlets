@@ -24,11 +24,11 @@ class NewsLetterCardTable extends React.Component {
                             <div className="relative text-red flex gap-3 items-center h-10 w-1/2 justify-center bg-accent rounded-l-3xl
                                 before:content-[''] before:h-10 before:w-10 before:absolute before:left-[-38px] before:top-[-12px] before:rounded-r-3xl before:shadow-[5px_25px_0px_5px_rgba(40,37,61,1)]">
                                 <div className="flex text-sm gap-1 items-center">
-                                    <img className="relative top-[-1px]"  src={"/images/icons/common/like.svg"}/>
+                                    <img className="relative top-[-1px]"  src={require("assets/images/icons/common/like.svg").default}/>
                                     {item.likes}
                                 </div>
                                 <div className="flex text-sm gap-1 items-center">
-                                    <img className="relative top-[1px]" src={"/images/icons/common/comment.svg"}/>
+                                    <img className="relative top-[1px]" src={require("assets/images/icons/common/comment.svg").default}/>
                                     {item.comments}
                                 </div>
                             </div>
@@ -38,7 +38,7 @@ class NewsLetterCardTable extends React.Component {
                             {item.name}
                         </div>
                         <div className="absolute bottom-[0px] w-full flex p-5 justify-between">
-                            <img src={"images/icons/common/" + item.platform + "-colored.svg"}/>
+                            <img src={require("assets/images/icons/common/" + item.platform + "-colored.svg").default}/>
                             <div className="cursor-pointer">
                                 See More
                             </div>

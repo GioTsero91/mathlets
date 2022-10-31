@@ -4,7 +4,8 @@ import {
   ethGenerator,
   extraDataGenerator,
   projectItemGenerator,
-  statusGenerator
+  statusGenerator,
+  whaleItemGenerator
 } from "./Generator"
 import Eth from "../components/common/atoms/Eth"
 import excelFile from '../assets/files/40-projects.xlsx'
@@ -57,26 +58,29 @@ export const parseExcel = () => {
 
 export const fakeSnipes = () => {
 
-  let item = [
-    {
-      className: 'col-span-2',
-      data: projectItemGenerator({
-        name:
-          "Sva",
-        img:
-          "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-        discord: {url: "", count: "124k"},
-        twitter: {url: "", count: "371.9k"},
-        website: {url: ""},
-        opensea: {url: ""},
-      })
-    },
-    statusGenerator({progress: 65, status: 'In Progress'}),
-    ethGenerator(0.8),
-    '10000',
-    '2.5%',
-    curveGenerator([{x: 0, y: 40}, {x: 20, y: 20}, {x: 40, y: 60}, {x: 100, y: 15}])
-  ]
+  let item = {
+    id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+    data: [
+      {
+        className: 'col-span-2',
+        data: projectItemGenerator({
+          name:
+            "Sva",
+          img:
+            "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
+          discord: {url: "", count: "124k"},
+          twitter: {url: "", count: "371.9k"},
+          website: {url: ""},
+          opensea: {url: ""},
+        })
+      },
+      statusGenerator({progress: 65, status: 'In Progress'}),
+      ethGenerator(0.8),
+      '10000',
+      '2.5%',
+      curveGenerator([{x: 0, y: 40}, {x: 20, y: 20}, {x: 40, y: 60}, {x: 100, y: 15}])
+    ]
+  }
 
   let items = []
 
@@ -89,26 +93,31 @@ export const fakeSnipes = () => {
 
 export const fakeWhales = () => {
 
-  let item = [
-    {
-      className: 'col-span-2',
-      data: projectItemGenerator({
-        name:
-          "Sva",
-        img:
-          "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-        discord: {url: "", count: "124k"},
-        twitter: {url: "", count: "371.9k"},
-        website: {url: ""},
-        opensea: {url: ""},
-      })
-    },
-    ethGenerator(0.8),
-    ethGenerator(0.8),
-    ethGenerator(0.8),
-    ethGenerator(0.8),
-    ethGenerator(0.8),
-  ]
+  let item = {
+    id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+    data: [
+      {
+        className: 'col-span-2',
+        data: whaleItemGenerator({
+          name:
+            "Sva",
+          img:
+            "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
+          discord: {url: "", count: "124k"},
+          twitter: {url: "", count: "371.9k"},
+          website: {url: ""},
+          opensea: {url: ""},
+          wallet: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz"
+        })
+      },
+      ethGenerator
+      (3000),
+      ethGenerator(5000),
+      ethGenerator(15000),
+      ethGenerator(500),
+      ethGenerator(7500),
+    ]
+  }
 
   let items = []
 
@@ -126,29 +135,32 @@ export const fakeTrends = () => {
   for (let i = 1; i < projects.length; i++) {
     const item = projects[i]
 
-    items.push([
-      {
-        className: 'col-span-2',
-        data: projectItemGenerator({
-          name: item['project_name'],
-          img: item['photo_link'],
-          discord: {url: item['discord_url'], count: item['discord_member']},
-          twitter: {url: item['twitter_url'], count: item['twitter_follower']},
-          website: {url: item['https://critterscult.com']},
-          opensea: {url: item['https://critterscult.com']},
-        })
-      },
-      ethGenerator(item['volume']),
-      item['sales'] ?? 0,
-      ethGenerator(item['floor']),
-      item['supply'] ?? 0,
-      '2.5%',
-      curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
-      {
-        type: 'extra',
-        data: extraDataGenerator(),
-      }
-    ])
+    items.push({
+      id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+      data: [
+        {
+          className: 'col-span-2',
+          data: projectItemGenerator({
+            name: item['project_name'],
+            img: item['photo_link'],
+            discord: {url: item['discord_url'], count: item['discord_member']},
+            twitter: {url: item['twitter_url'], count: item['twitter_follower']},
+            website: {url: item['https://critterscult.com']},
+            opensea: {url: item['https://critterscult.com']},
+          })
+        },
+        ethGenerator(item['volume']),
+        item['sales'] ?? 0,
+        ethGenerator(item['floor']),
+        item['supply'] ?? 0,
+        '2.5%',
+        curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
+        {
+          type: 'extra',
+          data: extraDataGenerator(),
+        }
+      ]
+    })
   }
 
   return items
@@ -162,26 +174,29 @@ export const fakeMints = () => {
     const item = projects[i]
     let max = Math.round(Math.random() * 3000)
 
-    items.push([
-      {
-        className: 'col-span-2',
-        data: projectItemGenerator({
-          name: item['project_name'],
-          img: item['photo_link'],
-          discord: {url: item['discord_url'], count: item['discord_member']},
-          twitter: {url: item['twitter_url'], count: item['twitter_follower']},
-          website: {url: item['https://critterscult.com']},
-          opensea: {url: item['https://critterscult.com']},
-        })
-      },
-      Math.round(Math.random() * 1000),
-      Math.round(Math.random() * 1000 + 1000),
-      Math.round(Math.random() * max) + "/" + max,
-      ethGenerator(item['floor']),
-      item['supply'],
-      curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
-      buttonGenerator("Mint Now")
-    ])
+    items.push({
+      id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+      data: [
+        {
+          className: 'col-span-2',
+          data: projectItemGenerator({
+            name: item['project_name'],
+            img: item['photo_link'],
+            discord: {url: item['discord_url'], count: item['discord_member']},
+            twitter: {url: item['twitter_url'], count: item['twitter_follower']},
+            website: {url: item['https://critterscult.com']},
+            opensea: {url: item['https://critterscult.com']},
+          })
+        },
+        Math.round(Math.random() * 1000),
+        Math.round(Math.random() * 1000 + 1000),
+        Math.round(Math.random() * max) + "/" + max,
+        ethGenerator(item['floor']),
+        item['supply'],
+        curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
+        buttonGenerator("Mint Now")
+      ]
+    })
   }
 
   return items
@@ -244,7 +259,7 @@ export const fakeBestDeal = () => {
   let sample = [
     {
       url: 'url',
-      thumb: 'images/pics/best-deal.png',
+      thumb: require('assets/images/pics/best-deal.png'),
       id: '345',
       name: 'Sad Bots Genesis',
       rank: '240/4000',

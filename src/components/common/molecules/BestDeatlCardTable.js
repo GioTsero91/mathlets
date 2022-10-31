@@ -24,8 +24,8 @@ class NewsLetterCardTable extends React.Component {
                    style={{backgroundImage: "url(" + item.thumb + ")"}}></div>
               <div className="flex flex-col flex-1 pt-3 pr-3 h-full justify-between">
                 <div className="flex justify-between w-full">
-                  <img src="images/icons/common/opensea.svg"/>
-                  <img src="images/icons/common/fav.png"/>
+                  <img src={require("assets/images/icons/common/opensea.svg").default}/>
+                  <img src={require("assets/images/icons/common/fav.png")}/>
                 </div>
                 <div>
                   <div className="flex text-sm justify-between w-full mb-3">

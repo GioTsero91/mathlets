@@ -45,14 +45,14 @@ class Item extends React.Component {
                     </div>
                     <div className="flex justify-self-end">
                         {data.floor}
-                        <img style={{ height: "15px", marginLeft: "5px"}} src={"images/icons/common/eth.svg"}/>
+                        <img style={{ height: "15px", marginLeft: "5px"}} src={require("assets/images/icons/common/eth.svg").default}/>
                     </div>
                     <div>
                         Vol
                     </div>
                     <div className="flex justify-self-end">
                         {data.vol}
-                        <img style={{ height: "15px", marginLeft: "5px"}} src={"images/icons/common/eth.svg"}/>
+                        <img style={{ height: "15px", marginLeft: "5px"}} src={require("assets/images/icons/common/eth.svg").default}/>
                     </div>
                 </div>
             </div>

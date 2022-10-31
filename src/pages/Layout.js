@@ -4,58 +4,58 @@ const Layout = () => {
     return (
         <>
             <nav>
-                <NavLink activeClassName="active" to="/">
+                <NavLink className={(navData) => (navData.isActive ? "active" : 'none')} to="/">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/main.svg"}/>
+                            <img src={require("assets/images/icons/nav/main.svg").default}/>
                         </div>
                         Main
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/whale">
+                <NavLink className={(navData) => (navData.isActive ? "active" : 'none')}  to="/whale">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/whale.svg"}/>
+                            <img src={require("assets/images/icons/nav/whale.svg").default}/>
                         </div>
-                        Whale
+                        Whales
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/trends">
+                <NavLink  className={(navData) => (navData.isActive ? "active" : 'none')} to="/trends">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/trends.svg"}/>
+                            <img src={require("assets/images/icons/nav/trends.svg").default}/>
                         </div>
                         Trends
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/mints">
+                <NavLink  className={(navData) => (navData.isActive ? "active" : 'none')} to="/mints">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/mints.svg"}/>
+                            <img src={require("assets/images/icons/nav/mints.svg").default}/>
                         </div>
                         Mints
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/newsletter">
+                <NavLink  className={(navData) => (navData.isActive ? "active" : 'none')} to="/newsletter">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/newsletter.svg"}/>
+                            <img src={require("assets/images/icons/nav/newsletter.svg").default}/>
                         </div>
                         Newsletter
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/best-deal">
+                <NavLink  className={(navData) => (navData.isActive ? "active" : 'none')} to="/best-deal">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/best-deal.svg"}/>
+                            <img src={require("assets/images/icons/nav/best-deal.svg").default}/>
                         </div>
                         Best Deal
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/upcoming-nft">
+                <NavLink  className={(navData) => (navData.isActive ? "active" : 'none')} to="/upcoming-nft">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/upcoming-nft.svg"}/>
+                            <img src={require("assets/images/icons/nav/upcoming-nft.svg").default}/>
                         </div>
                         Upcoming NFT
                     </div>

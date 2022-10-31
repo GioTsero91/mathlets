@@ -12,6 +12,7 @@ module.exports = {
             'purple': '#A45AE5',
             'pink': '#F741C4',
             'red': '#F44268',
+            'row-hover': '#2F2C46',
         },
         extend: {},
     },

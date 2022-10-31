@@ -43,7 +43,7 @@ class RightFilter extends React.Component {
                                         this.setState({
                                             selected: el.target.getAttribute('data-name')
                                         })
-                                    }}><img className="pointer-events-none" src={"images/icons/common/news-" + item + ".svg"}/></div>
+                                    }}><img className="pointer-events-none" src={require("assets/images/icons/common/news-" + item + ".svg").default}/></div>
                     })
                 }
             </div>

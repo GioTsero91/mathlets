@@ -22,21 +22,59 @@ export const projectItemGenerator = (data) => {
                 {data.name}
             </div>
             <div style={{maxWidth: "300px"}} className="flex flex-row text-sm font-light text-xs mt-3 items-center">
-                <img src={"images/icons/common/discord.svg"} />
+                <img src={require("assets/images/icons/common/discord.svg").default} />
                 <span className="ml-1 text-[#A8E2FF]">{data.discord.count}</span>
 
-                <img className="ml-5" src={"images/icons/common/twitter.svg"} />
+                <img className="ml-5" src={require("assets/images/icons/common/twitter.svg").default} />
                 <span className="ml-1 text-[#05ADFF]">{data.twitter.count}</span>
 
-                <img className="ml-5" src={"images/icons/common/website.svg"} />
+                <img className="ml-5" src={require("assets/images/icons/common/website.svg").default} />
 
-                <img className="ml-5" src={"images/icons/common/opensea.svg"} />
+                <img className="ml-5" src={require("assets/images/icons/common/opensea.svg").default} />
             </div>
 
 
         </div>
     </div>
 }
+
+export const whaleItemGenerator = (data) => {
+    return <div className="flex items-center p-3 w-full justify-start">
+        <div className="overflow-hidden rounded-lg"
+             style={
+                 {
+                     flex: "0 0 50px",
+                     height: "50px",
+                     backgroundImage: "url(" + data.img + ")",
+                     backgroundPosition: "center",
+                     backgroundSize: "cover",
+                     backgroundRepeat: "no-repeat",
+                 }
+             }>
+        </div>
+        <div className="ml-5 flex flex-col gap-[15px]">
+            <div className={"text-sm font-normal text-" + data.color}>
+                {data.name}
+            </div>
+            <div style={{maxWidth: "300px"}} className="flex flex-row text-sm font-light text-xs items-center">
+                <img src={require("assets/images/icons/common/discord.svg").default} />
+                <span className="ml-1 text-[#A8E2FF]">{data.discord.count}</span>
+
+                <img className="ml-5" src={require("assets/images/icons/common/twitter.svg").default} />
+                <span className="ml-1 text-[#05ADFF]">{data.twitter.count}</span>
+
+                <img className="ml-5" src={require("assets/images/icons/common/website.svg").default} />
+
+                <img className="ml-5" src={require("assets/images/icons/common/opensea.svg").default} />
+            </div>
+            <div className={"text-xs font-light"}>
+                {data.wallet}
+            </div>
+
+        </div>
+    </div>
+}
+
 
 export const statusGenerator = (data) => {
     return <Status data={data}></Status>
