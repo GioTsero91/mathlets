@@ -4,7 +4,7 @@ import Eth from "../components/common/atoms/Eth";
 import ExtraRowData from "../components/common/organisms/ExtraRowData";
 
 export const projectItemGenerator = (data) => {
-    return <div className="flex items-center p-3" align="left">
+    return <div className="flex items-center p-3 w-full justify-start">
         <div className="overflow-hidden rounded-lg"
              style={
                  {

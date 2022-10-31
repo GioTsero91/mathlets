@@ -1,7 +1,10 @@
 import BigTable from "../components/common/molecules/BigTable";
-import {fakeTrends} from "../services/Faker";
+import {useSelector} from "react-redux"
+import {fakeTrends} from "../services/Faker"
 
 const Trends = () => {
+    const projects = useSelector((state) => state.projects)
+
     return <div className="h-full">
 
         <BigTable data={{

@@ -9,8 +9,13 @@ import Trends from "./pages/Trends";
 import Newsletter from "./pages/Newsletter";
 import BestDeal from "./pages/BestDeal";
 import Mints from "./pages/Mints";
+import {parseExcel} from "./services/Faker"
+import {useEffect} from "react"
 
 function App() {
+  useEffect(() => {
+    parseExcel()
+  },[])
 
   return (
     <div id="main">
