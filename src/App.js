@@ -2,12 +2,13 @@ import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Snipe from "./pages/Snipe";
+import Whale from "./pages/Whale";
 import NoPage from "./pages/NoPage";
 import CustomInput from "./components/common/atoms/CustomInput";
 import Trends from "./pages/Trends";
 import Newsletter from "./pages/Newsletter";
 import BestDeal from "./pages/BestDeal";
+import Mints from "./pages/Mints";
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
         </div>
         <div className="w-1/3 flex justify-center">
           <CustomInput icon={"images/icons/common/search.svg"} width={"600px"}
-                       placeholder={"Search NFT, Projects and more"}></CustomInput>
+                       placeholder={"Search NFT, Projects and more"}/>
           <img className="cursor-pointer" src={"images/icons/common/filters.svg"}/>
         </div>
         <div className="flex items-center flex-row w-1/3 justify-end pr-10">
@@ -49,8 +50,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout/>}>
               <Route index element={<Home/>}/>
-              <Route path="snipe" element={<Snipe/>}/>
+              <Route path="whale" element={<Whale/>}/>
               <Route path="trends" element={<Trends/>}/>
+              <Route path="mints" element={<Mints/>}/>
               <Route path="newsletter" element={<Newsletter/>}/>
               <Route path="best-deal" element={<BestDeal/>}/>
               <Route path="*" element={<NoPage/>}/>

@@ -12,12 +12,12 @@ const Layout = () => {
                         Main
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/snipe">
+                <NavLink activeClassName="active" to="/whale">
                     <div className={"item"}>
                         <div>
-                            <img src={"images/icons/nav/snipe.svg"}/>
+                            <img src={"images/icons/nav/whale.svg"}/>
                         </div>
-                        Snipe
+                        Whale
                     </div>
                 </NavLink>
                 <NavLink activeClassName="active" to="/trends">

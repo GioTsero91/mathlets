@@ -12,7 +12,7 @@ class Status extends React.Component {
             <div className="mb-1 w-20 h-1 bg-teal text-left overflow-hidden" style={{borderRadius:'3px'}}>
                 <div className={"bg-pink h-full"} style={{width: this.data.progress + '%'}}></div>
             </div>
-            <div className="text-sm">
+            <div className="text-sm text-center">
                 {this.data.progress} %
             </div>
         </div>

@@ -1,5 +1,37 @@
-import {curveGenerator, ethGenerator, extraDataGenerator, projectItemGenerator, statusGenerator} from "./Generator";
+import {
+    buttonGenerator,
+    curveGenerator,
+    ethGenerator,
+    extraDataGenerator,
+    projectItemGenerator,
+    statusGenerator
+} from "./Generator";
 import Eth from "../components/common/atoms/Eth";
+import excelFile from '../assets/files/40-projects.xlsx'
+import * as xlsx from 'xlsx';
+
+
+export const parseExcel = () => {
+    let request = new XMLHttpRequest();
+    request.open('GET', excelFile, true);
+    request.responseType = "arraybuffer";
+    request.onload = function() {
+
+        /* convert data to binary string */
+        let data = new Uint8Array(request.response);
+        let arr = [];
+        for (let i = 0; i <= data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+        data = arr.join("");
+
+        //using xlsx library convert file to json
+        const workbook = xlsx.read(data, { type: "binary" })
+        const sheetName = workbook.SheetNames[0]
+        const worksheet = workbook.Sheets[sheetName]
+        const json = xlsx.utils.sheet_to_json(worksheet)
+        console.log(json)
+    };
+    request.send();
+}
 
 export const fakeSnipes = () => {
 
@@ -22,6 +54,38 @@ export const fakeSnipes = () => {
         '10000',
         '2.5%',
         curveGenerator([{x: 0, y: 40}, {x: 20, y: 20}, {x: 40, y: 60}, {x: 100, y: 15}])
+    ];
+
+    let items = [];
+
+    for (let i = 0; i < 30; i++) {
+        items.push(item);
+    }
+
+    return items;
+}
+
+export const fakeWhales = () => {
+
+    let item = [
+        {
+            className: 'col-span-2',
+            data: projectItemGenerator({
+                name:
+                  "Sva",
+                img:
+                  "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
+                discord: {url: "", count: "124k"},
+                twitter: {url: "", count: "371.9k"},
+                website: {url: ""},
+                opensea: {url: ""},
+            })
+        },
+        ethGenerator(0.8),
+        ethGenerator(0.8),
+        ethGenerator(0.8),
+        ethGenerator(0.8),
+        ethGenerator(0.8),
     ];
 
     let items = [];
@@ -58,6 +122,38 @@ export const fakeTrends = () => {
             type: 'extra',
             data: extraDataGenerator(),
         }
+    ];
+    let items = [];
+
+    for (let i = 0; i < 30; i++) {
+        items.push(item);
+    }
+
+    return items;
+}
+
+export const fakeMints = () => {
+    let item = [
+        {
+            className: 'col-span-2',
+            data: projectItemGenerator({
+                name:
+                  "Azuki",
+                img:
+                  "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
+                discord: {url: "", count: "124k"},
+                twitter: {url: "", count: "371.9k"},
+                website: {url: ""},
+                opensea: {url: ""},
+            })
+        },
+        ethGenerator(343),
+        '5234',
+        ethGenerator(0.3),
+        '10000',
+        '2.5%',
+        curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
+        buttonGenerator("Mint Now")
     ];
     let items = [];
 

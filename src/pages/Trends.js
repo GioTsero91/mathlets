@@ -11,6 +11,9 @@ const Trends = () => {
                 headerCellZindex: '10',
                 rowHeight: '80px',
             },
+            filter: {
+                type: "times"
+            },
             headers: [
                 {
                     label: ''
@@ -41,7 +44,7 @@ const Trends = () => {
                 }
             ],
             rows: fakeTrends()
-        }}></BigTable>
+        }}/>
     </div>
 };
 

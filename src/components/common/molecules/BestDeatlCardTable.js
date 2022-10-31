@@ -57,7 +57,7 @@ class NewsLetterCardTable extends React.Component {
                 </div>
 
                 <div
-                  className="cursor-pointer rounded-full bg-gradient-to-r from-[#F48DA7] to-[#F35AB0] text-white px-3 py-1">
+                  className="cursor-pointer rounded-full bg-gradient-to-br from-[#8D35A3] to-[#F55BB1] text-white px-3 py-1">
                   Buy Now
                 </div>
               </div>

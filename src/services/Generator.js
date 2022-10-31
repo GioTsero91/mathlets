@@ -53,3 +53,7 @@ export const curveGenerator = (data) => {
 export const extraDataGenerator = (data) => {
     return <ExtraRowData data={data}></ExtraRowData>
 }
+
+export const buttonGenerator = (label) => {
+  return <div className={"cursor-pointer rounded-full bg-gradient-to-br from-[#8D35A3] to-[#F55BB1] text-white px-3 py-1"}>{label}</div>
+}
