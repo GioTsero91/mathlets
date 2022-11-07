@@ -6,12 +6,13 @@ import Whales from "./pages/Whales";
 import NoPage from "./pages/NoPage";
 import CustomInput from "./components/common/atoms/CustomInput";
 import Trends from "./pages/Trends";
-import Newsletter from "./pages/Newsletter";
+import Newsletter from "./pages/newsletter/Newsletter";
 import BestDeal from "./pages/BestDeal";
 import Mints from "./pages/Mints";
 import {parseExcel} from "./services/Faker"
 import {useEffect} from "react"
-import Whale from "./pages/Whale";
+import Whale from "./pages/whale/Whale";
+import Upcoming from "./pages/upcomming/Upcomming";
 
 function App() {
   useEffect(() => {
@@ -22,12 +23,12 @@ function App() {
     <div id="main">
       <div id="header">
         <div className="w-1/3 flex flex-row items-center cursor-pointer">
-          <img style={{height: "50px", margin: "15px", marginLeft: "40px"}} src={require("assets/images/owl.webp")}/>
-          <div style={{color: '#F741C4'}}>
+          <img style={{height: "50px", margin: "15px", marginLeft: "40px"}} src={require("assets/images/icons/common/logo.png")}/>
+          <div style={{color: '#FFF'}}>
             Mathlete Owls
           </div>
         </div>
-        <div className="w-1/3 flex justify-center">
+        <div className="w-1/3 flex justify-center gap-[15px]">
           <CustomInput icon={require("assets/images/icons/common/search.svg").default} width={"600px"}
                        placeholder={"Search NFT, Projects and more"}/>
           <img className="cursor-pointer" src={require("assets/images/icons/common/filters.svg").default}/>
@@ -62,6 +63,7 @@ function App() {
               <Route path="mints" element={<Mints/>}/>
               <Route path="newsletter" element={<Newsletter/>}/>
               <Route path="best-deal" element={<BestDeal/>}/>
+              <Route path="upcoming-nft" element={<Upcoming/>}/>
               <Route path="*" element={<NoPage/>}/>
             </Route>
           </Routes>

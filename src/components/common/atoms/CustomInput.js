@@ -4,6 +4,7 @@ const styles = {
     container: {
         display: "flex",
         alignItems: "center",
+        position: "relative",
     },
     input: {
         borderRadius: "9999px",
@@ -17,8 +18,8 @@ const styles = {
         paddingLeft: "20px",
     },
     icon: {
-        position: "relative",
-        left: "-35px",
+        position: "absolute",
+        right: "15px",
         height: "20px"
     }
 };

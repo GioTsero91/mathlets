@@ -1,4 +1,4 @@
-import LeftFilter from "../components/newsletter/LeftFilter";
+import LeftFilter from "./newsletter/components/LeftFilter";
 import {useDispatch, useSelector} from "react-redux";
 import {update} from "../services/redux/global";
 import NewsLetterCardTable from "../components/common/molecules/NewsLetterCardTable";

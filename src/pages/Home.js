@@ -1,5 +1,5 @@
 import Slider from "../components/common/atoms/Slider";
-import NewsletterItem from "../components/newsletter/NewsletterItem";
+import NewsletterItem from "./newsletter/components/NewsletterItem";
 import {
   ArcElement,
   BarElement,
@@ -153,7 +153,7 @@ const Home = () => {
         layout: {
           padding: 14
         },
-        spacing: 20,
+        spacing: 8,
         elements: {
           arc: {
             borderWidth: 1,
@@ -220,7 +220,7 @@ const Home = () => {
         cutout: '85%',
         label: '',
         data: [100],
-        radius: 83,
+        radius: 76,
         spacing: 0,
         backgroundColor: [
           '#666475',

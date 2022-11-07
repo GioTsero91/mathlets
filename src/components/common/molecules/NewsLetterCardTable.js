@@ -1,4 +1,5 @@
 import React from 'react';
+import youtubeApi from "../../../services/api/Youtube";
 
 
 class NewsLetterCardTable extends React.Component {

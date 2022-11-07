@@ -256,23 +256,22 @@ export const fakeNewsletter = () => {
 }
 
 export const fakeBestDeal = () => {
-  let sample = [
-    {
-      url: 'url',
-      thumb: require('assets/images/pics/best-deal.png'),
-      id: '345',
-      name: 'Sad Bots Genesis',
-      rank: '240/4000',
-      volume: '254.3',
-      price: <Eth data={'5'}></Eth>
-    },
-  ]
+  const projects = store.getState().projects.projects
+
 
   let items = []
 
-  for (let i = 0; i < 30; i++) {
-    items.push(...sample)
-  }
+  projects.forEach((project) => {
+    items.push({
+      url: project['website_url'],
+      thumb: project['photo_link'],
+      id: project['id'],
+      name: project['project_name'],
+      rank: project['rank'],
+      volume: project['volume'],
+      price: <Eth data={project['price']}></Eth>
+    })
+  })
 
   return items
 }

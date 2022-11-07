@@ -1,19 +1,22 @@
-import BigTable from "../components/common/molecules/BigTable";
-import {fakeWhales} from "../services/Faker";
 import Eth from "../components/common/atoms/Eth";
 import {Doughnut} from 'react-chartjs-2';
+import BigTable from "../components/common/molecules/BigTable";
+import {fakeWhales} from "../services/Faker";
 
 const pieData = {
   labels: ['Red', 'Blue', 'Yellow', 'Green',],
   datasets: [
     {
-      label: '# of Votes',
+      hoverOffset: 5,
+      radius: 37,
+      cutout: '60%',
+      label: '',
       data: [12, 19, 3, 5],
       backgroundColor: [
-        '#F741C4D0',
-        '#8D35A3D0',
-        '#5D4ED5D0',
-        '#37A0ECD0',
+        '#F741C4',
+        '#8D35A3',
+        '#5D4ED5',
+        '#37A0EC',
       ],
       borderColor: [
         '#F741C4',
@@ -23,6 +26,22 @@ const pieData = {
       ],
       borderWidth: 2,
     },
+
+    {
+      cutout: '90%',
+      label: '',
+      data: [100],
+      radius: 38,
+      spacing: 0,
+      backgroundColor: [
+        '#666475',
+      ],
+      borderColor: [
+        '#666475',
+      ],
+      borderWidth: 2,
+    },
+
   ],
 };
 
@@ -48,9 +67,13 @@ const Whales = () => {
 
       <div className={"bg-accent rounded-[35px] h-[150px] pr-[100px]"}>
         <Doughnut options={{
-          responsive: false,
-          cutout: "80%",
-          radius: 50,
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '80%',
+          layout: {
+            padding: 14
+          },
+          spacing: 7,
           elements: {
             arc: {
               borderWidth: 1,
@@ -61,11 +84,11 @@ const Whales = () => {
             legend: {
               position: 'right',
               labels: {
-                boxWidth: '40',
+                boxWidth: '5',
                 color: '#fff',
                 usePointStyle: true,
+                padding: 20
               }
-
             },
           },
         }} data={pieData}/>
