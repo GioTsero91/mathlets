@@ -2,9 +2,11 @@ import CustomInput from "../../../../components/common/atoms/CustomInput";
 import React from "react";
 import Card from "./components/Card";
 import Activity from "./components/activity";
+import {useNavigate} from "react-router-dom"
 
 
 const NFT = () => {
+  const navigate = useNavigate()
 
   const nfts = Array.from({length: 50}, () => {
     return {
@@ -83,7 +85,7 @@ const NFT = () => {
       <div className={"w-[70%] overflow-auto p-[20px]"}>
         {
           nfts.map((nft) => {
-            return <Card data={nft}/>
+            return <span className={"cursor-pointer"} onClick={()=> {navigate("/bot")}}><Card data={nft}/></span>
           })
         }
       </div>
