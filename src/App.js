@@ -13,6 +13,7 @@ import {parseExcel} from "./services/Faker"
 import {useEffect} from "react"
 import Whale from "./pages/whale/Whale";
 import Upcoming from "./pages/upcomming/Upcomming";
+import Bot from "./pages/bot/Bot"
 
 function App() {
   useEffect(() => {
@@ -59,6 +60,7 @@ function App() {
               <Route index element={<Home/>}/>
               <Route path="whale" exact element={<Whales/>}/>
               <Route path="whale/:wallet" element={<Whale/>}/>
+              <Route path="bot" element={<Bot/>}/>
               <Route path="trends" element={<Trends/>}/>
               <Route path="mints" element={<Mints/>}/>
               <Route path="newsletter" element={<Newsletter/>}/>
