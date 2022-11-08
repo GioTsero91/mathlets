@@ -5,7 +5,7 @@ import RightFilter from "./components/RightFiter";
 import NewsLetterCardTable from "../../components/common/molecules/NewsLetterCardTable";
 import {fakeNewsletter} from "../../services/Faker";
 import youtubeApi from "../../services/api/Youtube";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const Newsletter = () => {
   const filter = useSelector((state) => state.global.newsLetterFilter)
@@ -17,11 +17,15 @@ const Newsletter = () => {
 
   const [youtubeVideos, setYoutubeProjects] = useState()
 
+  useEffect(() => {
+    youtubeApi().then((result) => {
+      setYoutubeProjects(result?.data)
+    }, () => {
+    });
 
-  youtubeApi().then((result) => {
-    setYoutubeProjects(result?.data?.items)
-  }, () => {
-  });
+  }, [])
+
+
 
   console.log(youtubeVideos)
 
@@ -42,7 +46,7 @@ const Newsletter = () => {
     </div>
 
     <div className="mb-20">
-      <NewsLetterCardTable data={fakeNewsletter()} filters={filter}/>
+      <NewsLetterCardTable data={fakeNewsletter(youtubeVideos)} filters={filter}/>
     </div>
   </div>
 };

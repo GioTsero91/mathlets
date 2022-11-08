@@ -202,16 +202,23 @@ export const fakeMints = () => {
   return items
 }
 
-export const fakeNewsletter = () => {
-  let sample = [
-    {
-      url: 'url',
-      thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
-      name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
-      platform: 'youtube',
-      likes: '30k',
+export const fakeNewsletter = (youtubeVideos) => {
+
+  let items = []
+  youtubeVideos?.forEach((video) => {
+    if (video?.id?.kind !== "youtube#video") return
+
+    items.push({
+      url: "https://www.youtube.com/watch?v=" + video?.id?.videoId,
+      thumb: video?.snippet?.thumbnails?.medium.url,
+      name: video?.snippet?.title,
+      platform: "youtube",
+      likes: '23k',
       comments: '20k'
-    },
+    })
+  })
+
+  let sample = [
     {
       url: 'url',
       thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
@@ -246,11 +253,12 @@ export const fakeNewsletter = () => {
     },
   ]
 
-  let items = []
 
   for (let i = 0; i < 10; i++) {
     items.push(...sample)
   }
+
+
 
   return items
 }
