@@ -10,8 +10,9 @@ class DropDown extends React.Component {
 
     render() {
         this.data = this.props.data ?? [];
+        this.color = this.props.color ?? "#AB4AC0CC"
 
-        return <select className={"bg-[#AB4AC0CC] rounded-[10px] px-[10px] py-[5px] focus:outline-0"} ref={this.rootRef}>
+        return <select className={"bg-["+ this.color +"] rounded-[10px] px-[10px] py-[5px] focus:outline-0"} ref={this.rootRef}>
             {
                 this.data.map((option, key) => {
                     return <option value={key}>{option}</option>

@@ -134,11 +134,13 @@ class BigTable extends React.Component {
                       }
                     </Row>
                     <Row ref={ref}>
-                      <div className="transition-all ease-in-out duration-300"
+                      <div  onClick={() => {
+                        !!this.navigate && this.props.navigate(this.navigate.url + rowId)
+                      }} className="transition-all ease-in-out duration-300 cursor-pointer"
                            style={{
                              transform: "transale3d(0,0,0)",
                              willChange: "height, opacity",
-                             height: this.state.showExtraData[rowKey] ? '500px' : '0px',
+                             height: this.state.showExtraData[rowKey] ? '410px' : '0px',
                              opacity: this.state.showExtraData[rowKey] ? '1' : '0',
                              gridColumn: "1 / span " + (row.length + 1)
                            }}>

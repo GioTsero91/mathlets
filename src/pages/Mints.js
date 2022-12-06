@@ -14,6 +14,9 @@ const Mints = () => {
             filter: {
                 type: "times",
             },
+            navigate: {
+                url: "/project/",
+            },
             headers: [
                 {
                     label: ''

@@ -16,6 +16,8 @@ import {
 import {Bar, Doughnut, Line} from 'react-chartjs-2';
 import React, {useEffect, useRef, useState} from 'react';
 import Item from "../components/common/atoms/Item";
+import youtubeApi from "../services/api/Youtube";
+import store from "../store";
 
 ChartJS.register(
   CategoryScale,
@@ -31,48 +33,34 @@ ChartJS.register(
 );
 
 const Home = () => {
-  let items = [
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-    {
-      userName: "test",
-      descr: "Thanks for great answer. For the following readers, note that the value within the map object(the map object here is const components and the value is PhotoStory and VideoStory) must be without quotation marks - Otherwise, the component will not render and y",
-      img: "https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA",
-    },
-  ];
+
+  const [youtubeVideos, setYoutubeProjects] = useState([])
+  const projects = store.getState().projects.projects
+
+  console.log(projects)
+
+  useEffect(() => {
+    youtubeApi().then((result) => {
+      setYoutubeProjects(result?.data)
+    }, (err) => {
+      console.log(err)
+    });
+
+  }, [])
+
+  const items = []
+
+
+  youtubeVideos?.forEach((video) => {
+    if (video?.id?.kind !== "youtube#video") return
+
+    items.push({
+      url: "https://www.youtube.com/watch?v=" + video?.id?.videoId,
+      img: video?.snippet?.thumbnails?.medium.url,
+      descr: video?.snippet?.title,
+      userName: "Brett Malinowski",
+    })
+  })
 
 
   const options =
@@ -309,105 +297,57 @@ const Home = () => {
         <div className="my-5 mt-10 text-teal">
           Trending collection
         </div>
-        <Item data={{
-          name: "Azuki",
-          color: "teal",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
-
-        <Item data={{
-          name: "Mathlets",
-          color: "teal",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "14 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
-
-        <Item data={{
-          name: "Azuki",
-          color: "teal",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
+        {
+          projects.slice(2,5).map((item) => {
+            return <Item data={{
+              name: item['project_name'],
+              color: "teal",
+              img: item['photo_link'],
+              timeAdded: "12 hours ago",
+              floor: item['floor'],
+              vol: item['volume'],
+              supply: item['supply'],
+            }}/>
+          })
+        }
       </div>
 
       <div className="flex flex-col gap-4">
         <div className="my-5 mt-10 text-purple">
           Best deals for you
         </div>
-        <Item data={{
-          name: "Azuki",
-          color: "purple",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
-
-        <Item data={{
-          name: "Azuki",
-          color: "purple",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
-
-        <Item data={{
-          name: "Azuki",
-          color: "purple",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
+        {
+          projects.slice(5,8).map((item) => {
+            return <Item data={{
+              name: item['project_name'],
+              color: "purple",
+              img: item['photo_link'],
+              timeAdded: "12 hours ago",
+              floor: item['floor'],
+              vol: item['volume'],
+              supply: item['supply'],
+            }}/>
+          })
+        }
       </div>
 
       <div className="flex flex-col gap-4">
         <div className="my-5 mt-10 text-pink">
           Upcoming Hot NFT Projects
         </div>
-        <Item data={{
-          name: "Azuki",
-          color: "pink",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
-
-        <Item data={{
-          name: "Azuki",
-          color: "pink",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
-
-        <Item data={{
-          name: "Azuki",
-          color: "pink",
-          img: "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          timeAdded: "12 hours ago",
-          floor: "0.8",
-          vol: "374.72",
-          supply: "10000",
-        }}></Item>
+        {
+          projects.slice(8,11).map((item) => {
+            return <Item data={{
+              name: item['project_name'],
+              color: "pink",
+              img: item['photo_link'],
+              timeAdded: "12 hours ago",
+              floor: item['floor'],
+              vol: item['volume'],
+              supply: item['supply'],
+            }}/>
+          })
+        }
       </div>
     </div>
 

@@ -17,6 +17,9 @@ const Trends = () => {
             filter: {
                 type: "times"
             },
+            navigate: {
+                url: "/project/",
+            },
             headers: [
                 {
                     label: ''

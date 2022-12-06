@@ -14,6 +14,7 @@ import {useEffect} from "react"
 import Whale from "./pages/whale/Whale";
 import Upcoming from "./pages/upcomming/Upcomming";
 import Bot from "./pages/bot/Bot"
+import Project from "./pages/project/Project";
 
 function App() {
   useEffect(() => {
@@ -66,6 +67,7 @@ function App() {
               <Route path="newsletter" element={<Newsletter/>}/>
               <Route path="best-deal" element={<BestDeal/>}/>
               <Route path="upcoming-nft" element={<Upcoming/>}/>
+              <Route path="project/:address" element={<Project/>}/>
               <Route path="*" element={<NoPage/>}/>
             </Route>
           </Routes>

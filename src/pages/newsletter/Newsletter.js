@@ -20,7 +20,8 @@ const Newsletter = () => {
   useEffect(() => {
     youtubeApi().then((result) => {
       setYoutubeProjects(result?.data)
-    }, () => {
+    }, (err) => {
+      console.log(err)
     });
 
   }, [])

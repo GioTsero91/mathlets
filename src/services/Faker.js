@@ -194,7 +194,10 @@ export const fakeMints = () => {
         ethGenerator(item['floor']),
         item['supply'],
         curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
-        buttonGenerator("Mint Now")
+        {
+          type: 'extra',
+          data: extraDataGenerator(),
+        }
       ]
     })
   }

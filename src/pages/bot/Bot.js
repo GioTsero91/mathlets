@@ -1,5 +1,3 @@
-import Overview from "../whale/components/Overview"
-import NFT from "../whale/components/NFT/NFT"
 import React, {useState} from "react"
 import Eth from "../../components/common/atoms/Eth"
 import Project from "./components/project/Project"

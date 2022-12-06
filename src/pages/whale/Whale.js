@@ -11,11 +11,8 @@ import {
   Title,
   Tooltip
 } from 'chart.js';
-import {Bar, Doughnut, Line} from 'react-chartjs-2';
 import React, {useEffect, useRef, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {ethGenerator} from "../../services/Generator";
-import Eth from "../../components/common/atoms/Eth";
 import Overview from "./components/Overview";
 import NFT from "./components/NFT/NFT";
 
@@ -32,7 +29,7 @@ ChartJS.register(
   ArcElement
 );
 
-const Home = () => {
+const Whale = () => {
 
   const [activeTab, setActiveTab] = useState(0);
   const { wallet } = useParams();
@@ -79,4 +76,4 @@ const Home = () => {
   </div>;
 };
 
-export default Home;
+export default Whale;

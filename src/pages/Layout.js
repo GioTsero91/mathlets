@@ -60,6 +60,14 @@ const Layout = () => {
                         Upcoming NFT
                     </div>
                 </NavLink>
+                <NavLink  className={(navData) => (navData.isActive ? "active" : 'none')} to="/bot">
+                    <div className={"item"}>
+                        <div>
+                            <img src={require("assets/images/icons/nav/bot.svg").default}/>
+                        </div>
+                        My Bot-Owl
+                    </div>
+                </NavLink>
             </nav>
 
             <div className="flex-1 pl-10 overflow-auto" style={{ height: 'calc(100vh - 80px)'}}>
