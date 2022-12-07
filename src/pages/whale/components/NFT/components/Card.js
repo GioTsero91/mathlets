@@ -4,7 +4,7 @@ import React from "react";
 const Card = ({data}) => {
 
   return <div className={"inline-flex bg-bg rounded-[20px] bg-accent m-[5px] flex-col gap-[5px] text-[12px] "}>
-    <img src={data?.image}/>
+    <img width={180} className={"rounded-lg"} src={data?.image}/>
     <div className={"p-[5px]"}>
       <div className={"text-[#55BEFF]"}>
         {data?.name}

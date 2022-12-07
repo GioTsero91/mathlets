@@ -132,7 +132,7 @@ const Project = () => {
             discord: {url: "", count: "11.22k"},
             twitter: {url: "", count: "12.21k"},
             website: {url: ""},
-            opensea: {url: ""},
+            magicEden: {url: ""},
           })}
         </div>
         <div className={"flex flex-col justify-between relative top-[-30px] items-center"}>

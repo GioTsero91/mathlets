@@ -12,10 +12,10 @@ const Activity = ({data}) => {
 
   return <div className={"text-[12px] bg-bg mb-[10px] mx-[10px] rounded-[10px] h-[95px] relative overflow-hidden"}>
     <div className={"h-full w-[5px] absolute"} style={{backgroundColor: colors[Math.floor(Math.random() * colors.length)]}}></div>
-    <div className={"flex w-full p-[10px] justify-between items-center"}>
+    <div className={"flex w-full p-[10px] justify-between items-center h-full"}>
 
 
-      <img src={data?.image}/>
+      <img  className={"rounded-lg h-full"} src={data?.image}/>
       <div style={item}>
         {data?.price}
       </div>

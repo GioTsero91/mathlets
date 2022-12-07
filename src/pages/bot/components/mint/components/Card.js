@@ -3,7 +3,8 @@ import Eth from "components/common/atoms/Eth"
 const Card = ({data}) => {
 
   return <div className={'w-full text-white bg-accent rounded-[20px] my-[10px] overflow-hidden relative'}>
-    <div className={"absolute top-0 right-[30px] text-[12px] bg-["+ data.color +"] rounded-b-[15px] px-[10px] py-[3px]"}>
+    <div
+      className={"absolute top-0 right-[30px] text-[12px] bg-[" + data.color + "] rounded-b-[15px] px-[10px] py-[3px]"}>
       Start: 25.09.22 00:23:00
     </div>
 

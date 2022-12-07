@@ -21,7 +21,7 @@ class Eth extends React.Component {
         return <div className={"flex justify-center items-center text-[" + sizes[this.size]?.fontSize + "]" }>
             <div className={"hidden text-[15px] text-[44px]"}></div>
             {this.data}
-            <img className="ml-2" src={require("assets/images/icons/common/eth.svg").default} style={{height: sizes[this.size]?.iconSize}}/>
+            <img width={30} className="ml-2" src={require("assets/images/icons/common/eth.svg").default} style={{height: sizes[this.size]?.iconSize}}/>
         </div>
     }
 }

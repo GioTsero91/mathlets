@@ -25,7 +25,7 @@ class NewsLetterCardTable extends React.Component {
               }}/>
               <div className="flex flex-col flex-1 pt-3 pr-3 h-full justify-between">
                 <div className="flex justify-between w-full">
-                  <img src={require("assets/images/icons/common/opensea.svg").default}/>
+                  <img width={35} src={require("assets/images/icons/common/magic-eden.png")}/>
                   <img src={require("assets/images/icons/common/fav.png")}/>
                 </div>
                 <div>

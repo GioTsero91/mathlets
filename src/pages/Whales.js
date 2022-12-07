@@ -1,28 +1,32 @@
-import Eth from "../components/common/atoms/Eth";
-import {Doughnut} from 'react-chartjs-2';
-import BigTable from "../components/common/molecules/BigTable";
-import {fakeWhales} from "../services/Faker";
+import Eth from "../components/common/atoms/Eth"
+import {Doughnut} from 'react-chartjs-2'
+import BigTable from "../components/common/molecules/BigTable"
+import {fakeWhales} from "../services/Faker"
 
 const pieData = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green',],
+  labels: ['y00ts', 'DeGods', 'LILY', ' Claynosaurz', 'Okay Bears'],
   datasets: [
     {
       hoverOffset: 5,
       radius: 37,
       cutout: '60%',
       label: '',
-      data: [12, 19, 3, 5],
+      data: [12, 19, 3, 5, 3],
       backgroundColor: [
         '#F741C4',
         '#8D35A3',
         '#5D4ED5',
         '#37A0EC',
+
+        '#58d246',
       ],
       borderColor: [
         '#F741C4',
         '#8D35A3',
         '#5D4ED5',
         '#37A0EC',
+
+        '#58d246',
       ],
       borderWidth: 2,
     },
@@ -43,7 +47,7 @@ const pieData = {
     },
 
   ],
-};
+}
 
 const Whales = () => {
   return <div className="h-full">
@@ -58,7 +62,7 @@ const Whales = () => {
       </div>
 
       <div className={"bg-accent rounded-[35px] flex flex-col px-[40px] py-[20px] gap-[10px]"}>
-        <div className={""}>Sepnt for some projects</div>
+        <div className={""}>Spent for some projects</div>
         <div className={"flex gap-[40px]"}>
           <img src={require("assets/images/icons/common/trend-up.svg").default}/>
           <Eth data={"87K"} size={"large"}></Eth>
@@ -87,7 +91,7 @@ const Whales = () => {
                 boxWidth: '5',
                 color: '#fff',
                 usePointStyle: true,
-                padding: 20
+                padding: 5
               }
             },
           },
@@ -135,6 +139,6 @@ const Whales = () => {
       rows: fakeWhales()
     }}/>
   </div>
-};
+}
 
-export default Whales;
+export default Whales

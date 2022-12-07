@@ -12,6 +12,7 @@ import excelFile from '../assets/files/40-projects.xlsx'
 import * as xlsx from 'xlsx'
 import store from '../store'
 import {updateProjects} from "./redux/projects"
+import {NftImages} from "../pages/whale/components/NFT/NFT"
 
 const toSnakeCase = str =>
   str &&
@@ -71,7 +72,7 @@ export const fakeSnipes = () => {
           discord: {url: "", count: "124k"},
           twitter: {url: "", count: "371.9k"},
           website: {url: ""},
-          opensea: {url: ""},
+          magicEden: {url: ""},
         })
       },
       statusGenerator({progress: 65, status: 'In Progress'}),
@@ -93,35 +94,35 @@ export const fakeSnipes = () => {
 
 export const fakeWhales = () => {
 
-  let item = {
-    id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
-    data: [
-      {
-        className: 'col-span-2',
-        data: whaleItemGenerator({
-          name:
-            "Sva",
-          img:
-            "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          discord: {url: "", count: "124k"},
-          twitter: {url: "", count: "371.9k"},
-          website: {url: ""},
-          opensea: {url: ""},
-          wallet: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz"
-        })
-      },
-      ethGenerator
-      (3000),
-      ethGenerator(5000),
-      ethGenerator(15000),
-      ethGenerator(500),
-      ethGenerator(7500),
-    ]
-  }
-
   let items = []
 
   for (let i = 0; i < 30; i++) {
+    let item = {
+      id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+      data: [
+        {
+          className: 'col-span-2',
+          data: whaleItemGenerator({
+            name:
+              "Sva",
+            img:
+              NftImages[Math.floor(Math.random()*NftImages.length)],
+            discord: {url: "", count: "124k"},
+            twitter: {url: "", count: "371.9k"},
+            website: {url: ""},
+            magicEden: {url: ""},
+            wallet: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz"
+          })
+        },
+        ethGenerator
+        (3000),
+        ethGenerator(5000),
+        ethGenerator(15000),
+        ethGenerator(500),
+        ethGenerator(7500),
+      ]
+    }
+
     items.push(item)
   }
 
@@ -146,7 +147,7 @@ export const fakeTrends = () => {
             discord: {url: item['discord_url'], count: item['discord_member']},
             twitter: {url: item['twitter_url'], count: item['twitter_follower']},
             website: {url: item['https://critterscult.com']},
-            opensea: {url: item['https://critterscult.com']},
+            magicEden: {url: item['https://critterscult.com']},
           })
         },
         ethGenerator(item['volume']),
@@ -185,7 +186,7 @@ export const fakeMints = () => {
             discord: {url: item['discord_url'], count: item['discord_member']},
             twitter: {url: item['twitter_url'], count: item['twitter_follower']},
             website: {url: item['https://critterscult.com']},
-            opensea: {url: item['https://critterscult.com']},
+            magicEden: {url: item['https://critterscult.com']},
           })
         },
         Math.round(Math.random() * 1000),
@@ -242,7 +243,7 @@ export const fakeNewsletter = (youtubeVideos) => {
       url: 'url',
       thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
       name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
-      platform: 'spotify',
+      platform: 'tiktok',
       likes: '30k',
       comments: '20k'
     },

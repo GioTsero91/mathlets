@@ -37,6 +37,14 @@ const options =
     line: {
       responsive: true,
       maintainAspectRatio: false,
+      animations: {
+        tension: {
+          duration: 2000,
+          from: 0.6,
+          to: 0.6,
+          loop: true
+        }
+      },
       scales: {
         y: {
           grid: {
@@ -46,13 +54,11 @@ const options =
             drawTicks: true,
           },
           ticks: {
-            color: '#ffffff'
+            display: false,
           }
         },
         x: {
-          ticks: {
-            color:'#ffffff'
-          }
+          display: false,
         }
       },
       elements: {
@@ -117,39 +123,28 @@ const Overview = () => {
   };
 
 
-  const lineData = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => Math.round(Math.random() * 1000)),
-        borderColor: '#F741C4E0',
-        backgroundColor: '#00000000',
-        fill: 'start'
-      },
-    ],
-  };
-
   const pieData = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green',],
+    labels: ['y00ts', 'DeGods', 'LILY', ' Claynosaurz', 'Okay Bears'],
     datasets: [
       {
         hoverOffset: 5,
         radius: 90,
         cutout: '70%',
         label: '',
-        data: [12, 19, 3, 5],
+        data: [12, 19, 3, 5, 3],
         backgroundColor: [
           '#F741C4',
           '#8D35A3',
           '#5D4ED5',
           '#37A0EC',
+          '#58d246',
         ],
         borderColor: [
           '#F741C4',
           '#8D35A3',
           '#5D4ED5',
           '#37A0EC',
+          '#58d246',
         ],
         borderWidth: 2,
       },
@@ -177,6 +172,19 @@ const Overview = () => {
   const chartRef = useRef(null);
   const [gradient, setGradient] = useState(null);
 
+  const lineData = {
+    labels,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: labels.map(() => Math.round(Math.random() * 1000)),
+        borderColor: '#F741C4E0',
+        backgroundColor: gradient,
+        fill: 'start'
+      },
+    ],
+  };
+
 
   useEffect(() => {
     const chart = chartRef.current;
@@ -194,7 +202,7 @@ const Overview = () => {
 
         <div className="bg-accent rounded-xl box-border flex flex-col h-[310px]">
           <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
-            <div>Chart 2</div>
+            <div>NFTs bought</div>
             <div>15 Days</div>
           </div>
           <div className={"flex-1"}>

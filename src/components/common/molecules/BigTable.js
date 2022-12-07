@@ -1,54 +1,54 @@
-import React from 'react';
-import {Body, Cell, Header, HeaderCell, HeaderRow, Row, Table,} from '@table-library/react-table-library/table';
-import FilterTabs from "./FilterTabs";
-import {CONFIG} from "../../../config";
-import CustomInput from "../atoms/CustomInput";
-import {withRouter} from "../../../services/WithRouter";
+import React from 'react'
+import {Body, Cell, Header, HeaderCell, HeaderRow, Row, Table,} from '@table-library/react-table-library/table'
+import FilterTabs from "./FilterTabs"
+import {CONFIG} from "../../../config"
+import CustomInput from "../atoms/CustomInput"
+import {withRouter} from "../../../services/WithRouter"
 
 class BigTable extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       tableWidth: 0,
       showExtraData: {},
       tableData: [],
       isLoading: false
     }
-    this.tableRef = React.createRef();
+    this.tableRef = React.createRef()
   }
 
 
   componentDidMount() {
     setInterval(() => {
-      const index = this.state.tableData.length;
+      const index = this.state.tableData.length
       if (this.props.data?.rows[index]) {
         this.setState({
           tableData: [...this.state.tableData, this.props.data?.rows[index]],
-        });
+        })
       }
-    }, 1);
+    }, 1)
   }
 
   componentWillUnmount() {
   }
 
   render() {
-    let width = this.props.data?.width ?? "100%";
-    this.headers = this.props.data?.headers ?? [];
+    let width = this.props.data?.width ?? "100%"
+    this.headers = this.props.data?.headers ?? []
     this.rows = this.state.tableData ?? []
-    this.style = this.props.data?.style ?? null;
-    this.filter = this.props.data.filter ?? null;
-    this.navigate = this.props.data.navigate ?? null;
+    this.style = this.props.data?.style ?? null
+    this.filter = this.props.data.filter ?? null
+    this.navigate = this.props.data.navigate ?? null
 
-    const data = {nodes: this.rows};
+    const data = {nodes: this.rows}
 
     const theme = {
       Table: "max-height: 100%",
       HeaderRow: "background-color: " + this.style?.headerRowColor + " ; color:#fff",
       HeaderCell: "padding-top: 20px; padding-bottom:20px; z-index: " + this.style?.headerCellZindex,
       Row: "background-color: transparent; color:#fff",
-    };
+    }
 
     return <div className={"relative"} style={{width: width, color: '#000', height: this.style?.maxHeight ?? '95%'}}>
       {
@@ -90,11 +90,11 @@ class BigTable extends React.Component {
                 {tableList.map((row, rowKey) => {
                   const rowId = row.id
                   const rowData = row.data
-                  const ref = React.createRef();
-                  let extraData = '';
+                  const ref = React.createRef()
+                  let extraData = ''
                   const showExtra = (key) => {
-                    let prevState = this.state.showExtraData;
-                    prevState[key] = !prevState[key];
+                    let prevState = this.state.showExtraData
+                    prevState[key] = !prevState[key]
                     this.setState({showExtraData: prevState})
                   }
 
@@ -111,19 +111,22 @@ class BigTable extends React.Component {
                           const className = item.className ?? ''
                           let data = item.className ? item.data : item
                           if (item.type === 'extra') {
-                            data = <div onClick={() => {
-                              showExtra(rowKey)
-                            }}
-                                        className="absolute top-[30px] rounded-full bg-no-repeat bg-center w-8 h-8 cursor-pointer flex items-center justify-center"
-                                        style={{backgroundImage: 'url(' + require("assets/images/icons/common/ellipse.svg").default + ')'}}>
-                              <img
-                                className={"transition-all ease-in-out duration-300 " + (this.state.showExtraData[rowKey] ? "rotate-180" : "rotate-1")}
-                                src={require("assets/images/icons/common/arrow-down.svg").default}/>
+                            data = <div className={"flex gap-[18px]"}>
+                              <div onClick={() => {
+                                showExtra(rowKey)
+                              }}
+                                   className="rounded-full bg-no-repeat bg-center w-8 h-8 cursor-pointer flex items-center justify-center"
+                                   style={{backgroundImage: 'url(' + require("assets/images/icons/common/ellipse.svg").default + ')'}}>
+                                <img
+                                  className={"transition-all ease-in-out duration-300 " + (this.state.showExtraData[rowKey] ? "rotate-180" : "rotate-1")}
+                                  src={require("assets/images/icons/common/arrow-down.svg").default}/>
+                              </div>
+                              <img src={require("assets/images/icons/nav/bot.svg").default}/>
                             </div>
-                            extraData = item.data;
+                            extraData = item.data
                           }
 
-                          const rounded = key === 0 ? "rounded-l-xl" : key === row.length - 1 ? "rounded-r-xl" : "";
+                          const rounded = key === 0 ? "rounded-l-xl" : key === row.length - 1 ? "rounded-r-xl" : ""
                           return <Cell className={"relative !items-center !bg-accent " + rounded + " " + className}>
                             <div data-table-width={this.state.tableWidth}
                                  className={"flex min-h-[" + this.style.rowHeight + "] items-center justify-center"}>
@@ -134,7 +137,7 @@ class BigTable extends React.Component {
                       }
                     </Row>
                     <Row ref={ref}>
-                      <div  onClick={() => {
+                      <div onClick={() => {
                         !!this.navigate && this.props.navigate(this.navigate.url + rowId)
                       }} className="transition-all ease-in-out duration-300 cursor-pointer"
                            style={{

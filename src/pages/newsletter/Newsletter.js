@@ -39,7 +39,7 @@ const Newsletter = () => {
           updateFilters("order", value)
         }}/>
       <RightFilter
-        data={["youtube", "twitter", "instagram", "spotify", "discord"]}
+        data={["youtube", "twitter", "instagram", "tiktok", "discord"]}
         default={filter.platform}
         callback={(value) => {
           updateFilters("platform", value)

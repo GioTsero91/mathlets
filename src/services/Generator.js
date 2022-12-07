@@ -30,7 +30,7 @@ export const projectItemGenerator = (data) => {
 
                 <img className="ml-5" src={require("assets/images/icons/common/website.svg").default} />
 
-                <img className="ml-5" src={require("assets/images/icons/common/opensea.svg").default} />
+                <img width={35} className="ml-5" src={require("assets/images/icons/common/magic-eden.png")} />
             </div>
 
 
@@ -65,7 +65,7 @@ export const whaleItemGenerator = (data) => {
 
                 <img className="ml-5" src={require("assets/images/icons/common/website.svg").default} />
 
-                <img className="ml-5" src={require("assets/images/icons/common/opensea.svg").default} />
+                <img width={35} className="ml-5" src={require("assets/images/icons/common/magic-eden.png")} />
             </div>
             <div className={"text-xs font-light"}>
                 {data.wallet}

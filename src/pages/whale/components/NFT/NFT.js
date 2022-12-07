@@ -4,13 +4,23 @@ import Card from "./components/Card";
 import Activity from "./components/activity";
 import {useNavigate} from "react-router-dom"
 
+export const NftImages = [
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/985.png",
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/1464.png",
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/12193.png",
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/4125.png",
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/7630.png",
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/2640.png",
+  "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://metadata.y00ts.com/y/3833.png",
+]
+
 
 const NFT = () => {
   const navigate = useNavigate()
 
   const nfts = Array.from({length: 50}, () => {
     return {
-      image: require("assets/images/pics/nft.png"),
+      image: NftImages[Math.floor(Math.random()*NftImages.length)],
       name: "Bored Ape Yacht Club",
       rank: "#2563",
       price: "116.63"
@@ -19,7 +29,7 @@ const NFT = () => {
 
   const activities = Array.from({length: 50}, () => {
     return {
-      image: require("assets/images/pics/profile.png"),
+      image:  NftImages[Math.floor(Math.random()*NftImages.length)],
       name: "Bored Ape Yacht Club",
       price: "116.53",
       from: "123lmdsokjmqokweejmnr",

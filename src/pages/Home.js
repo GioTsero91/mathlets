@@ -168,12 +168,12 @@ const Home = () => {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'NFTs listed',
         data: labels.map(() => Math.round(Math.random() * 1000)),
         backgroundColor: '#F741C4E0',
       },
       {
-        label: 'Dataset 2',
+        label: 'NFTs sold',
         data: labels.map(() => Math.round(Math.random() * 1000)),
         backgroundColor: '#53BAFAE0',
       },
@@ -181,25 +181,27 @@ const Home = () => {
   };
 
   const pieData = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green',],
+    labels: ['y00ts', 'DeGods', 'LILY', ' Claynosaurz', 'Okay Bears'],
     datasets: [
       {
         hoverOffset: 5,
         radius: 70,
         cutout: '70%',
         label: '',
-        data: [12, 19, 3, 5],
+        data: [12, 19, 3, 5, 3],
         backgroundColor: [
           '#F741C4',
           '#8D35A3',
           '#5D4ED5',
           '#37A0EC',
+          '#58d246',
         ],
         borderColor: [
           '#F741C4',
           '#8D35A3',
           '#5D4ED5',
           '#37A0EC',
+          '#58d246',
         ],
         borderWidth: 2,
       },
@@ -258,7 +260,7 @@ const Home = () => {
            className="flex-1 bg-accent rounded-xl flex items-center justify-center box-border ">
         <div className="w-full h-full  flex flex-col">
           <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
-            <div className={"max-w-[170px]"}>Sales breakdown top NFTs collections</div>
+            <div className={"max-w-[170px]"}>Top 5 projects</div>
             <div>15 Days</div>
           </div>
           <div className={"flex-1 h-[100px]"}>
@@ -270,7 +272,7 @@ const Home = () => {
 
       <div style={{flexBasis: '40%'}} className="bg-accent  rounded-xl box-border flex flex-col">
         <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
-          <div>Chart 2</div>
+          <div>Solana Volume</div>
           <div>15 Days</div>
         </div>
         <div className={"flex-1"}>
