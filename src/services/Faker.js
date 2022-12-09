@@ -9,10 +9,12 @@ import {
 } from "./Generator"
 import Eth from "../components/common/atoms/Eth"
 import excelFile from '../assets/files/40-projects.xlsx'
+import excelFile1 from '../assets/files/upcoming.xlsx'
 import * as xlsx from 'xlsx'
 import store from '../store'
 import {updateProjects} from "./redux/projects"
 import {NftImages} from "../pages/whale/components/NFT/NFT"
+import {updateUpcoming} from "./redux/upcoming";
 
 const toSnakeCase = str =>
   str &&
@@ -37,6 +39,21 @@ const jsonToProject = (json) => {
   store.dispatch(updateProjects(projectsOrganized))
 }
 
+const jsonToUpcoming = (json) => {
+  const projectsOrganized = []
+
+  Array.isArray(json) && json.forEach((row) => {
+    Object.keys(row).forEach((key) => {
+      if (!isNaN(key)) {
+        if (!projectsOrganized[key]) projectsOrganized[key] = []
+        projectsOrganized[key][toSnakeCase(row["__EMPTY"])] = row[key]
+      }
+    })
+  })
+
+  store.dispatch(updateUpcoming(projectsOrganized))
+}
+
 export const parseExcel = () => {
   let request = new XMLHttpRequest()
   request.open('GET', excelFile, true)
@@ -55,6 +72,24 @@ export const parseExcel = () => {
     jsonToProject(json)
   }
   request.send()
+
+  let request1 = new XMLHttpRequest()
+  request1.open('GET', excelFile1, true)
+  request1.responseType = "arraybuffer"
+  request1.onload = function () {
+
+    let data = new Uint8Array(request1.response)
+    let arr = []
+    for (let i = 0; i <= data.length; ++i) arr[i] = String.fromCharCode(data[i])
+    data = arr.join("")
+
+    const workbook = xlsx.read(data, {type: "binary"})
+    const sheetName = workbook.SheetNames[0]
+    const worksheet = workbook.Sheets[sheetName]
+    const json = xlsx.utils.sheet_to_json(worksheet)
+    jsonToUpcoming(json)
+  }
+  request1.send()
 }
 
 export const fakeSnipes = () => {
