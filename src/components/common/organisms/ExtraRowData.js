@@ -2,6 +2,7 @@ import React from 'react';
 import {Body, Cell, Header, HeaderCell, HeaderRow, Row, Table} from "@table-library/react-table-library/table";
 import DropDown from "../atoms/DropDown";
 import {Bubble} from 'react-chartjs-2';
+import {NftImages} from "../../../pages/whale/components/NFT/NFT";
 
 
 function getRandomInt({min, max}) {
@@ -92,7 +93,7 @@ class ExtraRowData extends React.Component {
       const node = [];
       node.push(<div className={"flex items-center justify-between w-full text-[12px] mr-[15px]"}>
         <img
-          src={"https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0"}
+          src={NftImages[Math.floor(Math.random()*NftImages.length)]}
           className={"w-[45px] h-[45px] rounded"}/>
         <div className={"flex flex-col h-full justify-between"}>
           <div className={"flex justify-between"}>
@@ -112,7 +113,7 @@ class ExtraRowData extends React.Component {
 
       node.push(<div className={"flex items-center justify-between w-full text-[12px] ml-[15px]"}>
         <img
-          src={"https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0"}
+          src={NftImages[Math.floor(Math.random()*NftImages.length)]}
           className={"w-[45px] h-[45px] rounded"}/>
         <div className={"flex flex-col h-full justify-between"}>
           <div className={"flex justify-between"}>

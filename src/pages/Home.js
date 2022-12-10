@@ -272,7 +272,7 @@ const Home = () => {
 
       <div style={{flexBasis: '40%'}} className="bg-accent  rounded-xl box-border flex flex-col">
         <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
-          <div>Solana Volume</div>
+          <div>Magic Eden Solana Volume</div>
           <div>15 Days</div>
         </div>
         <div className={"flex-1"}>
@@ -300,7 +300,7 @@ const Home = () => {
           Trending collection
         </div>
         {
-          projects.slice(2,5).map((item) => {
+          projects.slice(2,10).map((item) => {
             return <Item data={{
               name: item['project_name'],
               color: "teal",
@@ -319,7 +319,7 @@ const Home = () => {
           Best deals for you
         </div>
         {
-          projects.slice(5,8).map((item) => {
+          projects.slice(10,18).map((item) => {
             return <Item data={{
               name: item['project_name'],
               color: "purple",
@@ -338,7 +338,7 @@ const Home = () => {
           Upcoming Hot NFT Projects
         </div>
         {
-          projects.slice(8,11).map((item) => {
+          projects.slice(18,26).map((item) => {
             return <Item data={{
               name: item['project_name'],
               color: "pink",

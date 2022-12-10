@@ -17,7 +17,7 @@ import {projectItemGenerator} from "../../services/Generator";
 import Eth from "../../components/common/atoms/Eth";
 import {Line} from "react-chartjs-2";
 import Overview from "../whale/components/Overview";
-import NFT from "../whale/components/NFT/NFT";
+import NFT, {NftImages} from "../whale/components/NFT/NFT";
 import DropDown from "../../components/common/atoms/DropDown";
 import NotableHolders from "./components/NotableHolders";
 import HolderDistribution from "./components/HolderDistribution";
@@ -97,7 +97,7 @@ for (let i = 0; i < 8; i++) {
   const row = [];
   row.push(<div className={"flex items-center justify-between w-full text-[12px] mr-[15px]"}>
     <img
-      src={"https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0"}
+      src={NftImages[Math.floor(Math.random()*NftImages.length)]}
       className={"w-[45px] h-[45px] rounded-[5px]"}/>
     <div className={"flex flex-col h-full justify-between"}>
       <div className={"flex justify-between"}>
