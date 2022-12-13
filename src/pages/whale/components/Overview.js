@@ -236,13 +236,13 @@ const Overview = () => {
             <div><Eth data={"17K"} size={"large"}/></div>
           </div>
         </div>
-        <div className={"w-[300px] h-[150px] bg-accent rounded-[15px] flex gap-[25px] justify-center items-center"}>
-          <img className={"w-[66px] h-[66px]"} src={require("assets/images/icons/whale/gas-spent.png")}/>
-          <div className={"flex flex-col"}>
-            <div>Gas Spent</div>
-            <div><Eth data={"0.3K"} size={"large"}/></div>
-          </div>
-        </div>
+        {/*<div className={"w-[300px] h-[150px] bg-accent rounded-[15px] flex gap-[25px] justify-center items-center"}>*/}
+        {/*  <img className={"w-[66px] h-[66px]"} src={require("assets/images/icons/whale/gas-spent.png")}/>*/}
+        {/*  <div className={"flex flex-col"}>*/}
+        {/*    <div>Gas Spent</div>*/}
+        {/*    <div><Eth data={"0.3K"} size={"large"}/></div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
         <div className={"w-[300px] h-[150px] bg-accent rounded-[15px] flex gap-[25px] justify-center items-center"}>
           <img className={"w-[66px] h-[66px]"} src={require("assets/images/icons/whale/total-revenue.png")}/>
           <div className={"flex flex-col"}>

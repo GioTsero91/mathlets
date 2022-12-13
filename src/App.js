@@ -10,7 +10,7 @@ import Newsletter from "./pages/newsletter/Newsletter"
 import BestDeal from "./pages/BestDeal"
 import Mints from "./pages/Mints"
 import {parseExcel} from "./services/Faker"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import Whale from "./pages/whale/Whale"
 import Upcoming from "./pages/upcomming/Upcomming"
 import Bot from "./pages/bot/Bot"
@@ -21,8 +21,17 @@ function App() {
     parseExcel()
   }, [])
 
+
+  const [searchOpen, setSearchOpen] = useState(false)
+
   return (
     <div id="main">
+      <div onClick={() => {
+        setSearchOpen(false)
+      }} className={"fixed top-0 left-0 w-full h-full bg-[#00000088] z-[10] transition-all ease-in-out duration-300 "
+        + (searchOpen ? "opacity-1 pointer-events-auto" : "opacity-0 pointer-events-none")}>
+
+      </div>
       <div id="header">
         <div className="w-1/3 flex flex-row items-center cursor-pointer">
           <img style={{height: "50px", margin: "15px", marginLeft: "40px"}}
@@ -31,10 +40,65 @@ function App() {
             Mathlete Owls
           </div>
         </div>
-        <div className="w-1/3 flex justify-center gap-[15px]">
-          <CustomInput icon={require("assets/images/icons/common/search.svg").default} width={"600px"}
-                       placeholder={"Search NFT, Projects and more"}/>
-          <img className="cursor-pointer" src={require("assets/images/icons/common/filters.svg").default}/>
+        <div
+          onClick={() => {
+            setSearchOpen(true)
+          }}
+          className={"fixed top-[60px] w-[750px] p-[30px] pt-[15px] w-1/3 flex flex-col justify-center rounded-xl relative z-[20] transition-all ease-in-out duration-300 "
+            + (searchOpen ? "bg-accent" : "bg-none")}>
+          <div className={"flex justify-center items-center gap-[15px]"}>
+            <CustomInput
+              icon={require("assets/images/icons/common/search.svg").default}
+              width={"650px"}
+              placeholder={"Search NFT, Projects and more"}/>
+            <img className="cursor-pointer" src={require("assets/images/icons/common/filters.svg").default}/>
+          </div>
+          <div className={"flex gap-[20px] w-full justify-center mt-[20px] transition-all ease-in-out duration-300 "
+            + (searchOpen ? "opacity-1 pointer-events-auto" : "opacity-0 pointer-events-none")}>
+
+            <div className={"flex flex-col gap-[15px] items-start"}>
+              <div className={"flex gap-[10px] justify-center items-center"}>
+                <img src={require("assets/images/icons/common/filter-date.svg").default}/> Date
+              </div>
+              <div className={"flex"}>
+                <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"} />
+                <img src={require("assets/images/icons/common/arrow-down.svg").default} className={"relative left-[-15px]"}/>
+                -
+                <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"} />
+                <img src={require("assets/images/icons/common/arrow-down.svg").default} className={"relative left-[-15px]"}/>
+              </div>
+            </div>
+
+            <div className={"flex flex-col gap-[15px] items-start"}>
+              <div className={"flex gap-[10px] justify-center items-center"}>
+                <img src={require("assets/images/icons/common/filter-price.svg").default}/> Price
+              </div>
+              <div className={"flex"}>
+                <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"} placeholder={"min"} />
+                -
+                <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"}  placeholder={"max"} />
+                <div src={require("assets/images/icons/common/arrow-down.svg").default} className={"relative left-[-15px]"}>$</div>
+              </div>
+            </div>
+
+            <div className={"flex flex-col gap-[15px] items-start"}>
+              <div className={"flex gap-[10px] justify-center items-center"}>
+                <img src={require("assets/images/icons/common/filter-rank.svg").default}/> Rank
+              </div>
+              <div className={"flex"}>
+                <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"}  placeholder={"min"} />
+                -
+                <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"}  placeholder={"max"} />
+              </div>
+            </div>
+
+            <div className={"flex items-center justify-center rounded-full bg-gradient-to-r from-[#F55BB1] gap-[5px] to-[#8D35A3] w-[100px] h-[40px] self-end cursor-pointer"}>
+              <img src={require("assets/images/icons/common/search.svg").default} />
+              Search
+            </div>
+
+
+          </div>
         </div>
         <div className="flex items-center flex-row w-1/3 justify-end pr-10">
           <div className="flex items-center flex-row mr-10">
