@@ -109,6 +109,10 @@ class ExtraRowData extends React.Component {
           <div>7 min ago</div>
           <div className={"mt-[5px]"}>#1234</div>
         </div>
+        <div
+          className="cursor-pointer rounded-full bg-gradient-to-br from-[#d053c4] to-[#A845D9FF] text-white px-3 py-1">
+          Buy
+        </div>
       </div>)
 
       node.push(<div className={"flex items-center justify-between w-full text-[12px] ml-[15px]"}>

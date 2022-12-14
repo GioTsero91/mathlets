@@ -1,7 +1,10 @@
 import Card from "./components/Card"
+import BotModalContext from "../../../../components/common/organisms/bot-modal"
+import {useContext} from "react"
 
 const Project = () => {
 
+  const {botModalOpen, setBotModalOpen} = useContext(BotModalContext)
 
   return <div className={"bg-bg rounded-[20px] p-[5px] m-[10px]"}>
     <div className={"flex w-full bg-[#30345C] items-center justify-between p-[10px] rounded-[15px] px-[20px]"}>
@@ -33,7 +36,7 @@ const Project = () => {
       <div className={"flex flex-col flex-1"}>
         <div className={"flex justify-between w-full p-[15px] bg-accent rounded-[20px] items-center"}>
           <div className={"text-[#F741C4]"}>To Do</div>
-          <div className={"flex items-center px-[10px] py-[5px] bg-[#F741C4] rounded-[15px]"}>+ Add new</div>
+          <div onClick={() => { setBotModalOpen({open: true, project: ''}) }} className={"cursor-pointer flex items-center px-[10px] py-[5px] bg-[#F741C4] rounded-[15px]"}>+ Add new</div>
         </div>
 
         <Card data={{

@@ -8,10 +8,9 @@ const item = {
 
 
 const Activity = ({data}) => {
-  const colors = ["#55BEFF", "#8D35A3"]
 
   return <div className={"text-[12px] bg-bg mb-[10px] mx-[10px] rounded-[10px] h-[95px] relative overflow-hidden"}>
-    <div className={"h-full w-[5px] absolute"} style={{backgroundColor: colors[Math.floor(Math.random() * colors.length)]}}></div>
+    <div className={"h-full w-[5px] absolute"} style={{backgroundColor: data?.color}}></div>
     <div className={"flex w-full p-[10px] justify-between items-center h-full"}>
 
 

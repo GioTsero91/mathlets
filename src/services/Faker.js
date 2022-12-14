@@ -139,7 +139,7 @@ export const fakeWhales = () => {
           className: 'col-span-2',
           data: whaleItemGenerator({
             name:
-              "Sva",
+              "Shmolder",
             img:
               NftImages[Math.floor(Math.random()*NftImages.length)],
             discord: {url: "", count: "124k"},
@@ -150,11 +150,11 @@ export const fakeWhales = () => {
           })
         },
         ethGenerator
-        (3000),
-        ethGenerator(5000),
-        ethGenerator(15000),
-        ethGenerator(500),
-        ethGenerator(7500),
+        ((Math.random() * 3000).toFixed(2)),
+        ethGenerator((Math.random() * 5000).toFixed(2)),
+        ethGenerator((Math.random() * 15000).toFixed(2)),
+        ethGenerator((Math.random() * 5000).toFixed(2)),
+        ethGenerator((Math.random() * 7500).toFixed(2)),
       ]
     }
 
@@ -173,6 +173,7 @@ export const fakeTrends = () => {
 
     items.push({
       id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+      projectName:item['project_name'],
       data: [
         {
           className: 'col-span-2',
@@ -257,45 +258,45 @@ export const fakeNewsletter = (youtubeVideos) => {
     })
   })
 
-  let sample = [
-    {
-      url: 'url',
-      thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
-      name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
-      platform: 'twitter',
-      likes: '40k',
-      comments: '1k'
-    },
-    {
-      url: 'url',
-      thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
-      name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
-      platform: 'instagram',
-      likes: '30k',
-      comments: '20k'
-    },
-    {
-      url: 'url',
-      thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
-      name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
-      platform: 'tiktok',
-      likes: '30k',
-      comments: '20k'
-    },
-    {
-      url: 'url',
-      thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
-      name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
-      platform: 'discord',
-      likes: '30k',
-      comments: '20k'
-    },
-  ]
+  // let sample = [
+  //   {
+  //     url: 'url',
+  //     thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
+  //     name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
+  //     platform: 'twitter',
+  //     likes: '40k',
+  //     comments: '1k'
+  //   },
+  //   {
+  //     url: 'url',
+  //     thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
+  //     name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
+  //     platform: 'instagram',
+  //     likes: '30k',
+  //     comments: '20k'
+  //   },
+  //   {
+  //     url: 'url',
+  //     thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
+  //     name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
+  //     platform: 'tiktok',
+  //     likes: '30k',
+  //     comments: '20k'
+  //   },
+  //   {
+  //     url: 'url',
+  //     thumb: 'https://i.ytimg.com/vi/iM39kbfKQy4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD02YKrbyPmLafEUKr0MAQ6L7u8VA',
+  //     name: 'NFTs to BUY NOW | Top NEW NFT Projects (May 2022)',
+  //     platform: 'discord',
+  //     likes: '30k',
+  //     comments: '20k'
+  //   },
+  // ]
 
 
-  for (let i = 0; i < 10; i++) {
-    items.push(...sample)
-  }
+  // for (let i = 0; i < 10; i++) {
+  //   items.push(...sample)
+  // }
 
 
 

@@ -6,6 +6,7 @@ import NewsLetterCardTable from "../../components/common/molecules/NewsLetterCar
 import {fakeNewsletter} from "../../services/Faker";
 import youtubeApi from "../../services/api/Youtube";
 import {useEffect, useState} from "react";
+import Loader from "../../components/common/molecules/Loader"
 
 const Newsletter = () => {
   const filter = useSelector((state) => state.global.newsLetterFilter)
@@ -26,11 +27,7 @@ const Newsletter = () => {
 
   }, [])
 
-
-
-  console.log(youtubeVideos)
-
-  return <div className="">
+  return <div className="w-full h-full">
     <div className="w-full flex justify-between pr-10 sticky top-0 bottom-0 z-10 bg-bg pb-3">
       <LeftFilter
         data={["Recent", "Popular"]}
@@ -45,10 +42,16 @@ const Newsletter = () => {
           updateFilters("platform", value)
         }}/>
     </div>
+    {
+      !!youtubeVideos ? <>
+        <div className="mb-20">
+          <NewsLetterCardTable data={fakeNewsletter(youtubeVideos)} filters={filter}/>
+        </div>
+      </> : <div className={"relative w-full h-full"}>
+        <Loader/>
+      </div>
+    }
 
-    <div className="mb-20">
-      <NewsLetterCardTable data={fakeNewsletter(youtubeVideos)} filters={filter}/>
-    </div>
   </div>
 };
 

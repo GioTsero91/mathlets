@@ -4,8 +4,11 @@ import FilterTabs from "./FilterTabs"
 import {CONFIG} from "../../../config"
 import CustomInput from "../atoms/CustomInput"
 import {withRouter} from "../../../services/WithRouter"
+import BotModalContext from "../organisms/bot-modal"
 
 class BigTable extends React.Component {
+
+  static contextType = BotModalContext
 
   constructor(props) {
     super(props)
@@ -41,6 +44,8 @@ class BigTable extends React.Component {
     this.filter = this.props.data.filter ?? null
     this.navigate = this.props.data.navigate ?? null
 
+    const {botModalOpen, setBotModalOpen} =this.context;
+
     const data = {nodes: this.rows}
 
     const theme = {
@@ -53,7 +58,7 @@ class BigTable extends React.Component {
     return <div className={"relative"} style={{width: width, color: '#000', height: this.style?.maxHeight ?? '95%'}}>
       {
         this.filter.type === 'search' &&
-        <div className={"absolute z-[11] top-[15px] px-[10px] rounded-[8px] flex items-center"}>
+        <div className={"absolute z-[9] top-[15px] px-[10px] rounded-[8px] flex items-center"}>
           <CustomInput icon={require("assets/images/icons/common/search.svg").default} width={"300px"}
                        placeholder={this.filter.placeholder}/>
         </div>
@@ -61,7 +66,7 @@ class BigTable extends React.Component {
 
       {
         this.filter.type === 'times' &&
-        <div className={"absolute z-[11] top-[15px] bg-accent px-[10px] rounded-[8px] flex items-center"}>
+        <div className={"absolute z-[9] top-[15px] bg-accent px-[10px] rounded-[8px] flex items-center"}>
           <img src={require("assets/images/icons/common/interval.svg").default}/>
           <div className={"border-r-[2px] border-bg self-stretch ml-[10px]"}>
 
@@ -89,6 +94,7 @@ class BigTable extends React.Component {
               <Body>
                 {tableList.map((row, rowKey) => {
                   const rowId = row.id
+                  const projectName= row.projectName
                   const rowData = row.data
                   const ref = React.createRef()
                   let extraData = ''
@@ -115,13 +121,13 @@ class BigTable extends React.Component {
                               <div onClick={() => {
                                 showExtra(rowKey)
                               }}
-                                   className="rounded-full bg-no-repeat bg-center w-8 h-8 cursor-pointer flex items-center justify-center"
+                                   className="rounded-full bg-no-repeat bg-center w-[32px] h-[32px] cursor-pointer flex items-center justify-center"
                                    style={{backgroundImage: 'url(' + require("assets/images/icons/common/ellipse.svg").default + ')'}}>
                                 <img
                                   className={"transition-all ease-in-out duration-300 " + (this.state.showExtraData[rowKey] ? "rotate-180" : "rotate-1")}
                                   src={require("assets/images/icons/common/arrow-down.svg").default}/>
                               </div>
-                              <img src={require("assets/images/icons/nav/bot.svg").default}/>
+                              <img onClick={() => { setBotModalOpen({open: true, project: projectName}) }} src={require("assets/images/icons/nav/bot.svg").default}/>
                             </div>
                             extraData = item.data
                           }
@@ -137,9 +143,7 @@ class BigTable extends React.Component {
                       }
                     </Row>
                     <Row ref={ref}>
-                      <div onClick={() => {
-                        !!this.navigate && this.props.navigate(this.navigate.url + rowId)
-                      }} className="transition-all ease-in-out duration-300 cursor-pointer"
+                      <div className="transition-all ease-in-out duration-300"
                            style={{
                              transform: "transale3d(0,0,0)",
                              willChange: "height, opacity",
