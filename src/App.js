@@ -52,17 +52,18 @@ function App() {
             onClick={() => {
               setSearchOpen(true)
             }}
-            className={"fixed top-[60px] w-[750px] p-[30px] pt-[15px] w-1/3 flex flex-col justify-center rounded-xl relative z-[20] transition-all ease-in-out duration-300 "
-              + (searchOpen ? "bg-accent" : "bg-none")}>
+            className={"top-[60px] w-[750px] p-[30px] pt-[15px] w-1/3 flex flex-col justify-center rounded-xl relative z-[20] transition-all ease-in-out duration-300 "
+              + (searchOpen ? "bg-accent  pointer-events-auto" : "bg-none pointer-events-none")}>
             <div className={"flex justify-center items-center gap-[15px]"}>
               <CustomInput
                 icon={require("assets/images/icons/common/search.svg").default}
                 width={"650px"}
+                className={"pointer-events-auto"}
                 placeholder={"Search NFT, Projects and more"}/>
               <img className="cursor-pointer" src={require("assets/images/icons/common/filters.svg").default}/>
             </div>
             <div className={"flex gap-[20px] w-full justify-center mt-[20px] transition-all ease-in-out duration-300 "
-              + (searchOpen ? "opacity-1 pointer-events-auto" : "opacity-0 pointer-events-none")}>
+              + (searchOpen ? " opacity-1 pointer-events-auto" : "opacity-0 pointer-events-none")}>
 
               <div className={"flex flex-col gap-[15px] items-start"}>
                 <div className={"flex gap-[10px] justify-center items-center"}>

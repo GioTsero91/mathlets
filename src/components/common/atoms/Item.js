@@ -1,5 +1,5 @@
 import React from 'react';
-import Curve from "./Curve";
+import MiniChart from "./MiniChart";
 
 const styles = {
     container: {
@@ -9,7 +9,7 @@ const styles = {
         padding: "10px",
         marginRight: "10px",
         borderRadius: "10px",
-        height: "120px",
+        height: "150px",
         width: "500px",
     },
 };
@@ -22,8 +22,8 @@ class Item extends React.Component {
             <div className="overflow-hidden rounded-lg"
                  style={
                      {
-                         flex: "0 0 80px",
-                         height: "80px",
+                         flex: "0 0 100px",
+                         height: "100px",
                          backgroundImage: "url(" + data.img + ")",
                          backgroundPosition: "center",
                          backgroundSize: "cover",
@@ -31,8 +31,8 @@ class Item extends React.Component {
                      }
                  }>
             </div>
-            <div style={{flexBasis: "50%"}} className="ml-5 flex flex-col">
-                <div className={"text-xl font-bold text-" + data.color}>
+            <div style={{flexBasis: "50%"}} className="ml-5 flex flex-col h-full justify-between">
+                <div className={"text-lg line-clamp-2 font-bold text-" + data.color}>
                     {data.name}
                 </div>
                 <div style={{maxWidth: "300px",}} className="text-sm font-light line-clamp-2 whitespace-pre-wrap text-xs">
@@ -56,11 +56,11 @@ class Item extends React.Component {
                     </div>
                 </div>
             </div>
-            <div style={{flexBasis: "25%"}} className="items-start h-full">
+            <div style={{flexBasis: "25%"}} className="items-center flex flex-col justify-between h-full">
                 <div className="font-light mb-3">
                     Supply: {data.supply}
                 </div>
-                <Curve color={data.color} data={[{x: 0,y: 20},{x: 20,y: 10},{x: 40,y: 60},{x: 70,y: 10},{x: 100,y: 30}]}></Curve>
+                <MiniChart/>
             </div>
         </div>
     }

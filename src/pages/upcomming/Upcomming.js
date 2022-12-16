@@ -1,4 +1,3 @@
-import {CONFIG} from "../../config";
 import FilterTabs from "../../components/common/molecules/FilterTabs";
 import React from "react";
 import {useSelector} from "react-redux";

@@ -42,6 +42,15 @@ const Project = () => {
         <Card data={{
           color: "#F741C4"
         }}/>
+        <Card data={{
+          color: "#F741C4"
+        }}/>
+        <Card data={{
+          color: "#F741C4"
+        }}/>
+        <Card data={{
+          color: "#F741C4"
+        }}/>
       </div>
 
       <div className={"flex flex-col flex-1"}>
@@ -49,6 +58,15 @@ const Project = () => {
           <div className={"text-[#8D35A3]"}>In progress</div>
         </div>
 
+        <Card data={{
+          color: "#8D35A3"
+        }}/>
+        <Card data={{
+          color: "#8D35A3"
+        }}/>
+        <Card data={{
+          color: "#8D35A3"
+        }}/>
         <Card data={{
           color: "#8D35A3"
         }}/>

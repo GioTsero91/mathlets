@@ -29,6 +29,7 @@ class CustomInput extends React.Component {
     let width = this.props.width ?? "300px";
     return <div style={styles.container}>
       <input
+        className={this.props.className}
         onFocus={this.props.onFocus}
         onBlur={this.props.onBlur}
         style={{...styles.input, width: width}}

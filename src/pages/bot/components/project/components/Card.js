@@ -1,6 +1,13 @@
 import Eth from "components/common/atoms/Eth"
+import {NftImages} from "../../../../whale/components/NFT/NFT"
+import {useSelector} from "react-redux"
 
 const Card = ({data}) => {
+
+
+  const projects = useSelector((state) => state.projects.projects)
+
+  const project = projects[Math.floor(Math.random()*projects.length)];
 
   return <div className={'w-full text-white bg-accent rounded-[20px] my-[10px] overflow-hidden relative'}>
     <div className={"absolute top-0 right-[30px] text-[12px] bg-["+ data.color +"] rounded-b-[15px] px-[10px] py-[3px]"}>
@@ -13,11 +20,8 @@ const Card = ({data}) => {
 
 
     <div className={"w-full"}>
-
-
-
       <div className={"flex gap-[10px]"}>
-        <img className={"w-[90px] h-[80px] rounded-[20px]"} src={require("assets/images/pics/nft.png")}/>
+        <img className={"w-[90px] h-[80px] rounded-[20px]"} src={project ? project['photo_link'] : ""}/>
         <div className={"flex flex-col flex-1 gap-[5px] text-[14px]"}>
           <div className={"text-[16px]"}>
             Project Name

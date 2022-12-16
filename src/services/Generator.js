@@ -1,4 +1,4 @@
-import Curve from "../components/common/atoms/Curve";
+import MiniChart from "../components/common/atoms/MiniChart";
 import Status from "../components/common/atoms/Status";
 import Eth from "../components/common/atoms/Eth";
 import ExtraRowData from "../components/common/organisms/ExtraRowData";
@@ -84,8 +84,8 @@ export const ethGenerator = (data) => {
     return <Eth data={data}></Eth>
 }
 
-export const curveGenerator = (data) => {
-    return <Curve data={data}></Curve>
+export const miniChartsGenerator = (data) => {
+    return <MiniChart/>
 }
 
 export const extraDataGenerator = (data) => {

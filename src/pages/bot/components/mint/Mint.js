@@ -1,4 +1,5 @@
 import Card from "./components/Card"
+import {useSelector} from "react-redux"
 
 const Mint = () => {
 
@@ -39,6 +40,15 @@ const Mint = () => {
         <Card data={{
           color: "#F741C4"
         }}/>
+        <Card data={{
+          color: "#F741C4"
+        }}/>
+        <Card data={{
+          color: "#F741C4"
+        }}/>
+        <Card data={{
+          color: "#F741C4"
+        }}/>
       </div>
 
       <div className={"flex flex-col flex-1"}>
@@ -46,6 +56,15 @@ const Mint = () => {
           <div className={"text-[#8D35A3]"}>In progress</div>
         </div>
 
+        <Card data={{
+          color: "#8D35A3"
+        }}/>
+        <Card data={{
+          color: "#8D35A3"
+        }}/>
+        <Card data={{
+          color: "#8D35A3"
+        }}/>
         <Card data={{
           color: "#8D35A3"
         }}/>

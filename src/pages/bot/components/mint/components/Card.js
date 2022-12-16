@@ -1,6 +1,11 @@
 import Eth from "components/common/atoms/Eth"
+import {useSelector} from "react-redux"
 
 const Card = ({data}) => {
+
+  const projects = useSelector((state) => state.projects.projects)
+
+  const project = projects[Math.floor(Math.random()*projects.length)];
 
   return <div className={'w-full text-white bg-accent rounded-[20px] my-[10px] overflow-hidden relative'}>
     <div
@@ -16,7 +21,7 @@ const Card = ({data}) => {
     <div className={"w-full flex items-stretch gap-[10px]"}>
 
       <div className={""}>
-        <img className={"h-full rounded-[20px] object-cover"} src={require("assets/images/pics/nft.png")}/>
+        <img className={"h-[200px] rounded-[20px] object-cover"} src={project ? project['photo_link'] : ''}/>
       </div>
 
       <div className={"flex gap-[10px]"}>

@@ -1,6 +1,6 @@
 import {
   buttonGenerator,
-  curveGenerator,
+  miniChartsGenerator,
   ethGenerator,
   extraDataGenerator,
   projectItemGenerator,
@@ -94,33 +94,35 @@ export const parseExcel = () => {
 
 export const fakeSnipes = () => {
 
-  let item = {
-    id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
-    data: [
-      {
-        className: 'col-span-2',
-        data: projectItemGenerator({
-          name:
-            "Sva",
-          img:
-            "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
-          discord: {url: "", count: "124k"},
-          twitter: {url: "", count: "371.9k"},
-          website: {url: ""},
-          magicEden: {url: ""},
-        })
-      },
-      statusGenerator({progress: 65, status: 'In Progress'}),
-      ethGenerator(0.8),
-      '10000',
-      '2.5%',
-      curveGenerator([{x: 0, y: 40}, {x: 20, y: 20}, {x: 40, y: 60}, {x: 100, y: 15}])
-    ]
-  }
+
 
   let items = []
 
   for (let i = 0; i < 30; i++) {
+    let item = {
+      id: "9FWT2jAGy9tHnL2F2zCVhjdXg5neMK2AZMV2g8gf2HKz",
+      data: [
+        {
+          className: 'col-span-2',
+          data: projectItemGenerator({
+            name:
+              "Sva",
+            img:
+              "https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s0",
+            discord: {url: "", count: "124k"},
+            twitter: {url: "", count: "371.9k"},
+            website: {url: ""},
+            magicEden: {url: ""},
+          })
+        },
+        statusGenerator({progress: 65, status: 'In Progress'}),
+        ethGenerator(0.8),
+        '10000',
+        '2.5%',
+        miniChartsGenerator([{x: 0, y: 40}, {x: 20, y: 20}, {x: 40, y: 60}, {x: 100, y: 15}])
+      ]
+    }
+
     items.push(item)
   }
 
@@ -191,7 +193,7 @@ export const fakeTrends = () => {
         ethGenerator(item['floor']),
         item['supply'] ?? 0,
         '2.5%',
-        curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
+        miniChartsGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
         {
           type: 'extra',
           data: extraDataGenerator(),
@@ -230,7 +232,7 @@ export const fakeMints = () => {
         Math.round(Math.random() * max) + "/" + max,
         ethGenerator(item['floor']),
         item['supply'],
-        curveGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
+        miniChartsGenerator([{x: 0, y: 80}, {x: 20, y: 50}, {x: 50, y: 70}, {x: 100, y: 10}]),
         {
           type: 'extra',
           data: extraDataGenerator(),
