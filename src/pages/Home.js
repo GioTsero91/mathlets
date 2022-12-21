@@ -18,6 +18,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import Item from "../components/common/atoms/Item";
 import youtubeApi from "../services/api/Youtube";
 import store from "../store";
+import DropDown from "../components/common/atoms/DropDown"
 
 ChartJS.register(
   CategoryScale,
@@ -261,7 +262,7 @@ const Home = () => {
         <div className="w-full h-full  flex flex-col">
           <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
             <div className={"max-w-[170px]"}>Top 5 projects</div>
-            <div>15 Days</div>
+            <DropDown color={"#252339"} data={["15 Days", "1 Month", "1 year"]}></DropDown>
           </div>
           <div className={"flex-1 h-[100px]"}>
             <Doughnut options={options.pie} data={pieData}/>
@@ -273,7 +274,7 @@ const Home = () => {
       <div style={{flexBasis: '40%'}} className="bg-accent  rounded-xl box-border flex flex-col">
         <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
           <div>Magic Eden Solana Volume</div>
-          <div>15 Days</div>
+          <DropDown color={"#252339"} data={["15 Days", "1 Month", "1 year"]}></DropDown>
         </div>
         <div className={"flex-1"}>
           <Line ref={chartRef} options={options.line} data={lineData}/>

@@ -27,8 +27,8 @@ function App() {
 
   const [searchOpen, setSearchOpen] = useState(false)
   const [botModalOpen, setBotModalOpen] = useState(false)
-
   const [chatModalOpen, setChatModalOpen] = useState(false)
+
 
   return (
     <BotModalContext.Provider value={{
@@ -70,7 +70,7 @@ function App() {
               onClick={() => {
                 setSearchOpen(true)
               }}
-              className={"top-[60px] w-[750px] p-[30px] pt-[15px] w-1/3 flex flex-col justify-center rounded-xl relative z-[20] transition-all ease-in-out duration-300 "
+              className={"top-[60px] min-w-[900px] p-[30px] pt-[15px] w-1/3 flex flex-col justify-center rounded-xl relative z-[20] transition-all ease-in-out duration-300 "
                 + (searchOpen ? "bg-accent  pointer-events-auto" : "bg-none pointer-events-none")}>
               <div className={"flex justify-center items-center gap-[15px]"}>
                 <CustomInput
@@ -114,18 +114,61 @@ function App() {
                   </div>
                 </div>
 
-                <div className={"flex flex-col gap-[15px] items-start"}>
-                  <div className={"flex gap-[10px] justify-center items-center"}>
-                    <img src={require("assets/images/icons/common/filter-rank.svg").default}/> Rank
+
+                {
+                  (
+                    window.location.pathname.includes("trends") ||
+                    window.location.pathname.includes("mints") ||
+                    window.location.pathname.includes("best-deal")
+                  ) &&
+                  <div className={"flex flex-col gap-[15px] items-start"}>
+                    <div className={"flex gap-[10px] justify-center items-center"}>
+                      <img src={require("assets/images/icons/common/filter-rank.svg").default}/> Rank
+                    </div>
+                    <div className={"flex"}>
+                      <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"}
+                             placeholder={"min"}/>
+                      -
+                      <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"}
+                             placeholder={"max"}/>
+                    </div>
                   </div>
-                  <div className={"flex"}>
-                    <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"}
-                           placeholder={"min"}/>
-                    -
-                    <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"}
-                           placeholder={"max"}/>
+                }
+
+                {
+                  window.location.pathname.includes("best-deal") &&
+                  <div className={"flex flex-col gap-[15px] items-start"}>
+                    <div className={"flex gap-[10px] justify-center items-center"}>
+                      <img src={require("assets/images/icons/common/filter-rank.svg").default}/> Potential Gain
+                    </div>
+                    <div className={"flex"}>
+                      <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"}
+                             placeholder={"min"}/>
+                      -
+                      <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"}
+                             placeholder={"max"}/>
+                    </div>
                   </div>
-                </div>
+                }
+
+                {
+                  window.location.pathname.includes("upcoming-nft") &&
+                  <div className={"flex flex-col gap-[15px] items-start"}>
+                    <div className={"flex gap-[10px] justify-center items-center"}>
+                      <img src={require("assets/images/icons/common/filter-rank.svg").default}/> Whitelist
+                    </div>
+                    <div className={"flex"}>
+                      <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px]"}
+                             placeholder={"min"}/>
+                      -
+                      <input className={"outline-none bg-accent border-b-[2px] border-white w-[60px] ml-[10px]"}
+                             placeholder={"max"}/>
+                    </div>
+                  </div>
+                }
+
+
+
 
                 <div
                   className={"flex items-center justify-center rounded-full bg-gradient-to-r from-[#F55BB1] gap-[5px] to-[#8D35A3] w-[100px] h-[40px] self-end cursor-pointer"}>

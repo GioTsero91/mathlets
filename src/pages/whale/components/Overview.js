@@ -1,6 +1,7 @@
 import {Bar, Doughnut, Line} from "react-chartjs-2"
 import Eth from "../../../components/common/atoms/Eth"
 import React, {useEffect, useRef, useState} from "react"
+import DropDown from "../../../components/common/atoms/DropDown"
 
 const options =
   {
@@ -276,7 +277,7 @@ const Overview = () => {
         <div className="bg-accent rounded-xl box-border flex flex-col h-[310px] px-[20px]">
           <div className={"w-full  flex justify-between py-[20px] px-[20px]"}>
             <div>Total Spent / Total Revenue / Total Gains</div>
-            <div>15 Days</div>
+            <DropDown color={"#252339"} data={["15 Days", "1 Month", "1 year"]}></DropDown>
           </div>
           <div className={"flex-1"}>
             <Line ref={chartRef} options={options.line} data={lineData}/>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { COLORS } from '../../../constants'
 
 class DropDown extends React.Component {
     constructor(props) {
@@ -12,10 +11,10 @@ class DropDown extends React.Component {
         this.data = this.props.data ?? [];
         this.color = this.props.color ?? "#AB4AC0CC"
 
-        return <select className={"bg-["+ this.color +"] rounded-[10px] px-[10px] py-[5px] focus:outline-0"} ref={this.rootRef}>
+        return <select style={{backgroundColor: this.color}} className={"rounded-[10px] px-[10px] py-[5px] outline-0 focus:outline-0"} ref={this.rootRef}>
             {
                 this.data.map((option, key) => {
-                    return <option value={key}>{option}</option>
+                    return <option style={{backgroundColor: this.color}} value={key}>{option}</option>
                 })
             }
         </select>
