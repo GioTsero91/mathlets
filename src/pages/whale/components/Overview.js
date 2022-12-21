@@ -306,7 +306,7 @@ const Overview = () => {
               <img src={require("assets/images/icons/common/filter-date.svg").default}/>
               01.12.22 - 05.12.23
             </div>
-            <div className={"absolute top-[150px] right-[15px] gap-[10px] grid grid-cols-2"}>
+            <div className={"absolute top-[150px] right-[15px] gap-[10px] grid grid-cols-2 text-xs"}>
               <div className={"flex gap-[10px] justify-start items-center"}>
                 <div className={"rounded-full w-[15px] h-[15px] bg-[#8D35A3]"}></div>
                 Shmondo
