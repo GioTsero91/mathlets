@@ -255,7 +255,7 @@ const Home = () => {
 
 
   return <div className="w-full relative">
-    <div style={{width: "96%", height: "300px"}} className="flex gap-5">
+    <div style={{height: "300px"}} className="flex gap-5 sticky top-0 bg-bg w-full pb-[30px]">
 
       <div style={{flexBasis: '20%'}}
            className="flex-1 bg-accent rounded-xl flex items-center justify-center box-border ">
@@ -286,16 +286,16 @@ const Home = () => {
       </div>
     </div>
 
-    <div className="my-5 mt-10">
-      Newsletter
-    </div>
-    <Slider>
-      {items.map((item, key) => {
-        return <NewsletterItem key={key} data={item}></NewsletterItem>
-      })}
-    </Slider>
+    {/*<div className="my-5 mt-10">*/}
+    {/*  Newsletter*/}
+    {/*</div>*/}
+    {/*<Slider>*/}
+    {/*  {items.map((item, key) => {*/}
+    {/*    return <NewsletterItem key={key} data={item}></NewsletterItem>*/}
+    {/*  })}*/}
+    {/*</Slider>*/}
 
-    <div className="w-full flex mt-32 mb-20 gap-4">
+    <div className="w-full flex mb-20 gap-4">
       <div className="flex flex-col gap-4">
         <div className="my-5 mt-10 text-teal">
           Trending collection

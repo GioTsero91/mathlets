@@ -47,14 +47,67 @@ export const ChatModal = () => {
                 (chatModalOpen ? "opacity-1 pointer-events-auto" : "opacity-0 pointer-events-none")}>}>
     <div className={"flex gap-[30px] transition-all ease-in-out duration-300 fixed bottom-[100px] right-[20px] z-[5] " +
       (chatModalOpen ? "opacity-1 pointer-events-auto" : "opacity-0 pointer-events-none")}>
-      <div className={"w-[800px] h-[600px] bg-accent flex flex-col"}>
-        <div className={"bg-gradient-to-r from-[#6C30CD] to-[#37A0EC] py-[5px]"}>
+      <div onClick={(e) => {
+        e.stopPropagation()
+      }} className={"w-[800px] h-[600px] bg-accent flex flex-col rounded-xl overflow-hidden"}>
+        <div className={"bg-gradient-to-r from-[#6C30CD] to-[#37A0EC] pb-[5px]"}>
           <div
-            className={"flex gap-[10px] overflow-hidden bg-gradient-to-r from-[#2B3C5E] to-[#352758] py-[15px] px-[10px]"}>
-            <div className={"flex flex-col items-center justify-center gap-[15px] text-sm"}>
+            className={"flex gap-[10px] w-full items-stretch justify-between overflow-hidden bg-gradient-to-r from-[#2B3C5E] to-[#352758] py-[15px] px-[10px]"}>
+            <div className={"flex items-center justify-center gap-[15px] text-sm"}>
               <img src={NftImages[Math.floor(Math.random() * NftImages.length)]}
                    className={"w-[40px] h-[40px] rounded-full"}/>
               {names[Math.floor(Math.random() * names.length)]}
+            </div>
+            <div className={"flex text-[#F35AB1] items-center justify-center"}>
+              Projects summary results
+            </div>
+            <div className={"flex items-center justify-center gap-[10px]"}>
+              <img src={require("assets/images/icons/chat/fav.svg").default}/>
+              <img src={require("assets/images/icons/common/filters.svg").default}/>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div className={"flex p-[20px] py-[10px] gap-[20px] text-sm"}>
+          <img src={NftImages[Math.floor(Math.random() * NftImages.length)]}
+               className={"w-[40px] h-[40px] rounded-full"}/>
+
+          <div className={"flex flex-col gap-[10px] text-[#37A0EC]"}>
+            {names[Math.floor(Math.random() * names.length)]}
+
+            <div
+              className={"pb-[25px] rounded-[50px] rounded-tl-xl  bg-gradient-to-r from-[#64D6ED] to-[#6C31CD] text-[#fff] font-light px-[30px] py-[15px]"}>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exer
+              <img src={require("assets/images/icons/common/whale-pic.svg").default}/>
+            </div>
+          </div>
+        </div>
+
+        <div className={"flex p-[20px] py-[10px] gap-[20px] text-sm"}>
+          <img src={NftImages[Math.floor(Math.random() * NftImages.length)]}
+               className={"w-[40px] h-[40px] rounded-full"}/>
+
+          <div className={"flex flex-col gap-[10px] text-[#37A0EC]"}>
+            {names[Math.floor(Math.random() * names.length)]}
+
+            <div
+              className={"pb-[25px] rounded-[50px] rounded-tl-xl  bg-gradient-to-r from-[#64D6ED] to-[#6C31CD] text-[#fff] font-light px-[30px] py-[15px]"}>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            </div>
+
+            <div
+              className={"flex justify-center rounded-full bg-[#8D35A344] border-[2px] border-[#8D35A3] text-[#fff] font-light px-[30px] py-[6px]"}>
+              80%
+            </div>
+            <div
+              className={"flex justify-center rounded-full bg-[#8D35A344] border-[2px] border-[#8D35A3] text-[#fff] font-light px-[30px] py-[6px]"}>
+              15%
+            </div>
+            <div
+              className={"flex justify-center rounded-full bg-[#8D35A344] border-[2px] border-[#8D35A3] text-[#fff] font-light px-[30px] py-[6px]"}>
+              10%
             </div>
           </div>
         </div>
